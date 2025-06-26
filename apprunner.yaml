@@ -1,0 +1,16 @@
+# The version of the apprunner.yaml file format.
+version: 1.0
+
+# The runtime to use. 'dockerfile' tells App Runner to use the Dockerfile in your repository.
+runtime: dockerfile
+
+# The build configuration. For a simple Dockerfile, this is all that's needed.
+build:
+  # App Runner will automatically find and use your Dockerfile.
+
+# The run configuration.
+run:
+  # The command to start your web server.
+  command: nginx -g 'daemon off;'
+  # The port your container listens on.
+  port: 80
