@@ -12,5 +12,6 @@ build:
 run:
   # The command to start your web server.
   command: nginx -g 'daemon off;'
-  # The port your container listens on.
-  port: 80
+  # Network configuration, including the port.
+  network:
+    port: 80
