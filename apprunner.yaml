@@ -1,14 +1,16 @@
 # The version of the apprunner.yaml file format.
 version: 1.0
 
-# Specifies that App Runner should use the Dockerfile in your repository.
-runtime: dockerfile
+# The build section. Because a Dockerfile exists in your repository, 
+# App Runner will automatically use it.
+build:
+  # No specific build settings are needed for a simple Dockerfile build.
 
-# Defines how to run your container after it's built.
+# The run configuration for your service.
 run:
   # The command to start the NGINX web server inside the container.
   command: nginx -g 'daemon off;'
-  
+
   # The network settings for your service.
   network:
     # The port that your container listens on.
