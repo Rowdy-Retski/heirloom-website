@@ -1,4 +1,8 @@
 version: 1.0
+build:
+  # This section is required by App Runner when a Dockerfile is present.
+  # We don't need to specify any commands, as App Runner will find
+  # and use the Dockerfile automatically.
 run:
   command: nginx -g 'daemon off;'
   network:
