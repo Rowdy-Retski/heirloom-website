@@ -69,6 +69,9 @@
         <!-- The form action now points to your actual Formspree endpoint -->
         <form action="https://formspree.io/f/xanjvbry" method="POST" enctype="multipart/form-data" class="max-w-4xl mx-auto bg-white/50 p-8 rounded-lg shadow-lg space-y-8 backdrop-blur-sm">
 
+            <!-- This hidden input tells Formspree where to redirect after submission -->
+            <input type="hidden" name="_next" value="thank-you.html">
+
             <!-- Page 1: Applicant Info -->
             <fieldset class="space-y-6">
                 <legend class="text-2xl font-bold mb-4 border-b-2" style="border-color: var(--accent-rose-gold);">Applicant Information</legend>
@@ -148,11 +151,7 @@
                     <label for="additional-info" class="form-label">Additional Information</label>
                     <textarea id="additional-info" name="additional-info" rows="4" class="form-input" placeholder="Do you have any special requests? Will you be offering promotions for the grand opening?"></textarea>
                 </div>
-                <div>
-                    <label for="product-photos" class="form-label">Product Photos</label>
-                    <input type="file" id="product-photos" name="product-photos[]" multiple class="form-input">
-                    <p class="text-sm text-gray-600 mt-1">Max file size: 80 MB. You can also email photos to Support@theheirloomstore.com.</p>
-                </div>
+                 <!-- Image Upload Section Removed -->
             </fieldset>
 
             <!-- Page 3: Agreement and Signature -->
