@@ -66,11 +66,8 @@
         <h1 class="text-4xl font-bold text-center mb-4">Vendor & Consignment Application</h1>
         <p class="text-center text-lg mb-12">Thank you for your interest in joining The Heirloom Store family!</p>
         
-        <!-- The form action now points to your actual Formspree endpoint -->
-        <form action="https://formspree.io/f/xanjvbry" method="POST" enctype="multipart/form-data" class="max-w-4xl mx-auto bg-white/50 p-8 rounded-lg shadow-lg space-y-8 backdrop-blur-sm">
-
-            <!-- This hidden input tells Formspree where to redirect after submission -->
-            <input type="hidden" name="_next" value="thank-you.html">
+        <!-- This is no longer a traditional form, but a container for our fields -->
+        <div id="application-form" class="max-w-4xl mx-auto bg-white/50 p-8 rounded-lg shadow-lg space-y-8 backdrop-blur-sm">
 
             <!-- Page 1: Applicant Info -->
             <fieldset class="space-y-6">
@@ -78,34 +75,34 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label for="first-name" class="form-label">First Name</label>
-                        <input type="text" id="first-name" name="first-name" class="form-input" required>
+                        <input type="text" id="first-name" name="First Name" class="form-input" required>
                     </div>
                     <div>
                         <label for="last-name" class="form-label">Last Name</label>
-                        <input type="text" id="last-name" name="last-name" class="form-input" required>
+                        <input type="text" id="last-name" name="Last Name" class="form-input" required>
                     </div>
                 </div>
                 <div>
                     <label for="business-name" class="form-label">Business Name (if applicable)</label>
-                    <input type="text" id="business-name" name="business-name" class="form-input">
+                    <input type="text" id="business-name" name="Business Name" class="form-input">
                 </div>
                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label for="email" class="form-label">Your Email Address</label>
-                        <input type="email" id="email" name="email" class="form-input" required>
+                        <input type="email" id="email" name="Email" class="form-input" required>
                     </div>
                     <div>
                         <label for="email-confirm" class="form-label">Confirm Email</label>
-                        <input type="email" id="email-confirm" name="email-confirm" class="form-input" required>
+                        <input type="email" id="email-confirm" name="Email Confirm" class="form-input" required>
                     </div>
                 </div>
                 <div>
                      <label for="phone" class="form-label">Your Phone</label>
-                     <input type="tel" id="phone" name="phone" class="form-input" required>
+                     <input type="tel" id="phone" name="Phone" class="form-input" required>
                 </div>
                 <div>
                     <label class="form-label">Preferred Contact Method</label>
-                    <select name="contact-method" class="form-input">
+                    <select id="contact-method" name="Contact Method" class="form-input">
                         <option>Phone</option>
                         <option>Email</option>
                         <option>Facebook</option>
@@ -114,7 +111,7 @@
                 </div>
                  <div>
                     <label class="form-label">Best Time To Call You</label>
-                    <select name="call-time" class="form-input">
+                    <select id="call-time" name="Best Time to Call" class="form-input">
                         <option>Mornings</option>
                         <option>Early Afternoon</option>
                         <option>Late Afternoon</option>
@@ -123,7 +120,7 @@
                 </div>
                  <div>
                     <label for="website" class="form-label">Website or Social Media (if applicable)</label>
-                    <input type="url" id="website" name="website" class="form-input" placeholder="https://">
+                    <input type="url" id="website" name="Website" class="form-input" placeholder="https://">
                 </div>
             </fieldset>
 
@@ -132,7 +129,7 @@
                 <legend class="text-2xl font-bold mb-4 border-b-2" style="border-color: var(--accent-rose-gold);">Vendor Booth or Consignment</legend>
                 <div>
                     <label class="form-label">I'm Applying For:</label>
-                    <select name="applying-for" class="form-input">
+                    <select id="applying-for" name="Applying For" class="form-input">
                         <option>Vendor Booth</option>
                         <option>Consignment Opportunity</option>
                         <option>Both</option>
@@ -141,17 +138,23 @@
                 </div>
                 <div>
                     <label for="experience" class="form-label">Previous Vendor Experience</label>
-                    <textarea id="experience" name="experience" rows="4" class="form-input" placeholder="Please list previous locations, dates, and reason for leaving. If none, please indicate N/A."></textarea>
+                    <textarea id="experience" name="Experience" rows="4" class="form-input" placeholder="Please list previous locations, dates, and reason for leaving. If none, please indicate N/A."></textarea>
                 </div>
                 <div>
                     <label for="product-info" class="form-label">Product Information</label>
-                    <textarea id="product-info" name="product-info" rows="6" class="form-input" placeholder="Describe your products, price range, and any special needs like electricity or display fixtures."></textarea>
+                    <textarea id="product-info" name="Product Info" rows="6" class="form-input" placeholder="Describe your products, price range, and any special needs like electricity or display fixtures."></textarea>
                 </div>
+                
+                <!-- Highlighted section for emailing photos -->
+                <div class="p-4 rounded-lg" style="background-color: var(--accent-sage); color: white;">
+                    <h4 class="font-bold text-lg">Submitting Product Photos</h4>
+                    <p class="mt-2 text-sm">When submitting this form, please also attach 3-5 photos of your products to the email that is generated. Please ensure the total size of your attachments is under 25MB to comply with Gmail's limit.</p>
+                </div>
+
                  <div>
                     <label for="additional-info" class="form-label">Additional Information</label>
-                    <textarea id="additional-info" name="additional-info" rows="4" class="form-input" placeholder="Do you have any special requests? Will you be offering promotions for the grand opening?"></textarea>
+                    <textarea id="additional-info" name="Additional Info" rows="4" class="form-input" placeholder="Do you have any special requests? Will you be offering promotions for the grand opening?"></textarea>
                 </div>
-                 <!-- Image Upload Section Removed -->
             </fieldset>
 
             <!-- Page 3: Agreement and Signature -->
@@ -159,13 +162,13 @@
                 <legend class="text-2xl font-bold mb-4 border-b-2" style="border-color: var(--accent-rose-gold);">Agreements & Signature</legend>
                 <div>
                     <label for="rental-term" class="form-label">Rental Term Agreement</label>
-                    <select name="rental-term" id="rental-term" class="form-input" required>
+                    <select id="rental-term" name="Rental Term" class="form-input" required>
                         <option value="vendor">Vendor: I agree to a minimum 6-month rental period.</option>
                         <option value="consigner">Consigner: Consignment Opportunity Only</option>
                     </select>
                 </div>
                 <div class="flex items-start">
-                    <input type="checkbox" id="item-criteria" name="item-criteria" class="h-5 w-5 mt-1 rounded text-rose-gold focus:ring-rose-gold" required>
+                    <input type="checkbox" id="item-criteria" name="Item Criteria Agreement" class="h-5 w-5 mt-1 rounded text-rose-gold focus:ring-rose-gold" required>
                     <label for="item-criteria" class="ml-3">I understand that only handcrafted, vintage, new, or antique items are accepted.</label>
                 </div>
                 <div>
@@ -181,7 +184,7 @@
                     </div>
                 </div>
                  <div class="flex items-start">
-                    <input type="checkbox" id="terms-agree" name="terms-agree" class="h-5 w-5 mt-1 rounded text-rose-gold focus:ring-rose-gold" required>
+                    <input type="checkbox" id="terms-agree" name="Terms Agreement" class="h-5 w-5 mt-1 rounded text-rose-gold focus:ring-rose-gold" required>
                     <label for="terms-agree" class="ml-3">By checking this box, I acknowledge that I have read, understood, and agree to the guidelines outlined in The Heirloom Store’s Vendor and Consignment Agreement.</label>
                 </div>
                 <div>
@@ -190,14 +193,14 @@
                        <canvas id="signature-pad" class="w-full h-48"></canvas>
                     </div>
                     <button type="button" id="clear-signature" class="text-sm mt-2" style="color: var(--accent-rose-gold);">Clear Signature</button>
-                    <input type="hidden" name="signature" id="signature-input">
                 </div>
              </fieldset>
              
             <div>
-                <button type="submit" class="w-full text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity" style="background-color: var(--accent-rose-gold);">Submit Application</button>
+                <button type="button" id="submit-mailto" class="w-full text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity" style="background-color: var(--accent-rose-gold);">Prepare & Submit via Email</button>
+                <p id="confirmation-message" class="text-center mt-4 text-green-700 font-bold hidden">Your email has been prepared! Please check your default email client to send the application.</p>
             </div>
-        </form>
+        </div>
     </div>
 
     <script>
@@ -222,15 +225,57 @@
             signaturePad.clear();
         });
 
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (event) => {
+        // Mailto logic
+        const submitButton = document.getElementById('submit-mailto');
+        submitButton.addEventListener('click', () => {
+            // 1. Validate required fields
+            const requiredInputs = document.querySelectorAll('#application-form [required]');
+            let allValid = true;
+            requiredInputs.forEach(input => {
+                if ((input.type === 'checkbox' && !input.checked) || (input.type !== 'checkbox' && !input.value)) {
+                    allValid = false;
+                    input.classList.add('border-red-500');
+                } else {
+                    input.classList.remove('border-red-500');
+                }
+            });
+
             if (signaturePad.isEmpty()) {
-                alert("Please provide a signature.");
-                event.preventDefault();
+                allValid = false;
+                canvas.closest('.signature-pad-container').style.borderColor = 'red';
             } else {
-                const signatureInput = document.getElementById('signature-input');
-                signatureInput.value = signaturePad.toDataURL();
+                 canvas.closest('.signature-pad-container').style.borderColor = 'var(--accent-mauve)';
             }
+            
+            if (!allValid) {
+                alert('Please fill out all required fields and provide a signature.');
+                return;
+            }
+
+            // 2. Gather form data
+            const formElements = document.querySelectorAll('#application-form [name]');
+            let emailBody = "New Vendor/Consignment Application:\n\n";
+            formElements.forEach(el => {
+                if (el.type === 'checkbox') {
+                    emailBody += `${el.name}: ${el.checked ? 'Agreed' : 'Not Agreed'}\n`;
+                } else if (el.value) {
+                    emailBody += `${el.name}: ${el.value}\n`;
+                }
+            });
+
+            emailBody += "\nSignature: Attached as image in email body (if supported by client) or see data URL below.\n";
+            emailBody += signaturePad.toDataURL(); // Add signature data URL as fallback
+
+            // 3. Construct mailto link
+            const recipient = "Support@theheirloomstore.com";
+            const subject = "New Vendor Application from The Heirloom Store Website";
+            const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+            // 4. Trigger email client
+            window.location.href = mailtoLink;
+
+            // 5. Show confirmation
+            document.getElementById('confirmation-message').classList.remove('hidden');
         });
     </script>
 </body>
