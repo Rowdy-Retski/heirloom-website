@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Heirloom Store</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Custom Styles & Colors -->
     <style>
         :root {
             --bg-parchment: #F5F0E6;
@@ -21,6 +18,7 @@
             --accent-rose-gold: #B76E79;
             --accent-sage: #A9B4A8;
             --accent-mauve: #C7B0B6;
+            --btn-shadow: #8e4d58; /* Darker shade of rose gold for 3D effect */
         }
         body {
             background-image: url('1171323-1.webp');
@@ -42,7 +40,7 @@
              backdrop-filter: blur(4px);
         }
         .header-logo {
-            height: 50px;
+            height: 100px; /* Increased from 50px to 100px */
             width: auto;
         }
         .video-container {
@@ -60,40 +58,82 @@
             width: 100%;
             height: 100%;
         }
+
+        /* 3D BUTTON STYLES */
+        .btn-3d {
+            background-color: var(--accent-rose-gold);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px; /* Fully rounded */
+            border: none;
+            transition: all 0.1s ease;
+            box-shadow: 0px 4px 0px var(--btn-shadow); /* The 3D "side" */
+            text-transform: uppercase;
+            font-size: 0.875rem; /* text-sm */
+            letter-spacing: 0.05em;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .btn-3d:hover {
+            filter: brightness(110%);
+            transform: translateY(-1px);
+            box-shadow: 0px 5px 0px var(--btn-shadow);
+        }
+
+        .btn-3d:active {
+            transform: translateY(4px); /* Push down effect */
+            box-shadow: 0px 0px 0px var(--btn-shadow); /* Hide shadow when pressed */
+        }
     </style>
 </head>
 <body class="text-charcoal">
 
-    <!-- HEADER & NAVIGATION -->
     <header class="bg-parchment/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#home" class="flex items-center space-x-2">
                 <img src="1.png" alt="The Heirloom Store Logo" class="header-logo">
             </a>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#mansion" class="hover:text-rose-gold transition-colors">The Mansion</a>
-                <a href="#about" class="hover:text-rose-gold transition-colors">About Us</a>
-                <a href="#contact" class="hover:text-rose-gold transition-colors">Contact</a>
-                <a href="https://shop.theheirloomstore.com" target="_blank" rel="noopener noreferrer">
-                    <img src="shop-now-button.jpg" alt="Shop Online Now" class="h-10">
-                </a>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#mansion" class="hover:text-rose-gold transition-colors font-medium">The Mansion</a>
+                <a href="#about" class="hover:text-rose-gold transition-colors font-medium">About Us</a>
+                <a href="#contact" class="hover:text-rose-gold transition-colors font-medium">Contact</a>
+                
+                <div class="flex space-x-4 ml-4">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d">
+                        Vendor Application
+                    </a>
+                    <a href="https://shop.theheirloomstore.com" target="_blank" rel="noopener noreferrer" class="btn-3d">
+                        Shop Online
+                    </a>
+                </div>
             </div>
+
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-             <a href="#mansion" class="block py-2 hover:text-rose-gold">The Mansion</a>
-             <a href="#about" class="block py-2 hover:text-rose-gold">About Us</a>
-             <a href="#contact" class="block py-2 hover:text-rose-gold">Contact</a>
-             <a href="https://shop.theheirloomstore.com" target="_blank" rel="noopener noreferrer" class="block py-2">
-                <img src="shop-now-button.jpg" alt="Shop Online Now" class="h-10">
-             </a>
+        
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 bg-parchment/95 shadow-lg">
+             <a href="#mansion" class="block py-3 hover:text-rose-gold font-medium border-b border-gray-200">The Mansion</a>
+             <a href="#about" class="block py-3 hover:text-rose-gold font-medium border-b border-gray-200">About Us</a>
+             <a href="#contact" class="block py-3 hover:text-rose-gold font-medium border-b border-gray-200 mb-4">Contact</a>
+             
+             <div class="flex flex-col space-y-4 items-center">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d w-full text-center">
+                    Vendor Application
+                </a>
+                <a href="https://shop.theheirloomstore.com" target="_blank" rel="noopener noreferrer" class="btn-3d w-full text-center">
+                    Shop Online
+                </a>
+             </div>
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
         <section id="home" class="relative h-screen min-h-[800px] flex items-center justify-center">
             <div class="absolute inset-0 bg-black opacity-40 z-10"></div>
             <div class="relative z-20 container mx-auto px-6 text-center">
@@ -103,16 +143,14 @@
                 </div>
                 <div class="w-full max-w-2xl mx-auto">
                     <div class="video-container rounded-lg shadow-2xl overflow-hidden">
-                        <iframe src="https://www.youtube.com/embed/kGkOjFng0Eg?autoplay=1&mute=1&loop=1&playlist=kGkOjFng0Eg&controls=0&showinfo=0&autohide=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/gAJ-8G1BgL4?autoplay=1&mute=1&loop=1&playlist=gAJ-8G1BgL4&controls=0&showinfo=0&autohide=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TRANSPARENT DIVIDER -->
         <div class="h-40"></div>
 
-        <!-- INTRODUCTORY & CORE SERVICES SECTION -->
         <section class="content-section">
             <div class="py-16 md:py-24">
                 <div class="container mx-auto px-6 text-center max-w-4xl">
@@ -147,10 +185,8 @@
             </div>
         </section>
 
-        <!-- TRANSPARENT DIVIDER -->
         <div class="h-40"></div>
         
-        <!-- MANSION HISTORY SECTION -->
         <section id="mansion" class="py-16 md:py-24 content-section-translucent">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center mb-12">A House of Many Lives: The Maple Street Mansion</h2>
@@ -170,10 +206,8 @@
             </div>
         </section>
 
-        <!-- TRANSPARENT DIVIDER -->
         <div class="h-40"></div>
 
-        <!-- ABOUT US / FOUNDER SECTION -->
         <section id="about" class="py-16 md:py-24 content-section">
             <div class="container mx-auto px-6 max-w-6xl">
                  <h2 class="text-4xl font-bold text-center mb-12">Our Story, Our Legacy</h2>
@@ -191,10 +225,8 @@
             </div>
         </section>
 
-        <!-- TRANSPARENT DIVIDER -->
         <div class="h-40"></div>
 
-        <!-- CONTACT SECTION -->
         <section id="contact" class="py-16 md:py-24 content-section-translucent">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl font-bold mb-4">We're Here to Help</h2>
@@ -219,14 +251,11 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-charcoal text-white">
         <div class="container mx-auto px-6 py-8 text-center">
             <p>&copy; 2024 The Heirloom Store LLC. All Rights Reserved.</p>
             <div class="mt-4 space-x-4">
                 <a href="#" class="text-sm text-gray-400 hover:text-white">Privacy Policy</a>
-                <span class="text-gray-500">|</span>
-                <a href="vendor-form.html" target="_blank" class="text-sm text-gray-400 hover:text-white">Vendor Application</a>
             </div>
         </div>
     </footer>
@@ -235,7 +264,6 @@
         // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileShopButton = document.querySelector('#mobile-menu a[href*="shop.theheirloomstore.com"]');
 
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
@@ -256,7 +284,6 @@
                 mobileMenu.classList.add('hidden');
             });
         });
-
     </script>
 
 </body>
