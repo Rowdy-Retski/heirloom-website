@@ -9,7 +9,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Added 'Great Vibes' font for the festive header -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -35,6 +36,16 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
         }
+        
+        /* Custom Holiday Font Class */
+        .font-holiday {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400; /* Script fonts often don't need bold */
+            letter-spacing: 2px;
+            line-height: 1.2;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Adds a nice pop against the background */
+        }
+
         .content-section {
              background-color: var(--bg-parchment);
         }
@@ -139,18 +150,13 @@
             position: fixed;
             z-index: 50; /* High Z-Index to ensure visibility */
             pointer-events: none;
-            /* mix-blend-mode: multiply;  
-               Note: If your images have a white background, 'multiply' makes it transparent. 
-               If your images are already transparent PNGs, you can remove this line. 
-               Since the filenames end in .jpg, we assume white backgrounds. */
-            mix-blend-mode: multiply; 
         }
 
         .holiday-holly {
             top: 0;
             left: 0;
-            width: 180px;
-            max-width: 30vw; /* Responsive sizing */
+            width: 100px; /* Reduced size significantly */
+            max-width: 15vw; /* Reduced max-width */
             height: auto;
         }
 
@@ -172,13 +178,12 @@
         /* Header Lights */
         .header-lights {
             position: absolute;
-            bottom: -20px; /* Hangs below the nav */
+            bottom: -35px; /* Lowered further to prevent chopping */
             left: 0;
             width: 100%;
-            height: 45px;
+            height: 55px; /* Increased height slightly */
             object-fit: cover; /* Stretches across the screen */
             pointer-events: none;
-            mix-blend-mode: multiply;
             z-index: 60;
             opacity: 0.9;
         }
@@ -189,12 +194,12 @@
 
     <!-- DECORATION ELEMENTS (Fixed Position) -->
     <!-- Added onerror to hide them cleanly if files are missing in preview -->
-    <img src="holly-christmas-corner.jpg" class="holiday-fixed-img holiday-holly" alt="Christmas Holly Decoration" onerror="this.style.display='none'">
-    <img src="Realistic_Candy_Cane.jpg" class="holiday-fixed-img holiday-cane" alt="Christmas Candy Cane" onerror="this.style.display='none'">
+    <img src="holly-christmas-corner.png" class="holiday-fixed-img holiday-holly" alt="Christmas Holly Decoration" onerror="this.style.display='none'">
+    <img src="Realistic_Candy_Cane.png" class="holiday-fixed-img holiday-cane" alt="Christmas Candy Cane" onerror="this.style.display='none'">
 
     <header class="bg-parchment/80 backdrop-blur-md shadow-sm relative">
         <!-- Lights Image inside Header -->
-        <img src="christmas-lights-png.jpg" class="header-lights" alt="Christmas Lights" onerror="this.style.display='none'">
+        <img src="christmas-lights-png.png" class="header-lights" alt="Christmas Lights" onerror="this.style.display='none'">
 
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center relative z-50">
             <a href="#home" class="flex items-center space-x-2">
@@ -243,13 +248,14 @@
             <div class="absolute inset-0 bg-black opacity-40 z-10"></div>
             <div class="relative z-20 container mx-auto px-6 text-center">
                 <div class="text-white mb-8">
-                    <!-- UPDATED HEADER TEXT -->
-                    <h1 class="text-4xl lg:text-6xl font-bold mb-4">
+                    <!-- UPDATED HEADER WITH NEW FONT AND SIZE -->
+                    <!-- Increased size slightly (text-5xl to text-7xl) because script fonts appear smaller -->
+                    <h1 class="font-holiday text-5xl lg:text-7xl mb-4">
                         Happy Holidays<br>
                         The Heirloom Store<br>
                         at the Maple Street Mansion
                     </h1>
-                    <p class="text-lg lg:text-2xl">Gifts that last a lifetime!</p>
+                    <p class="text-lg lg:text-2xl mt-6">Gifts that last a lifetime!</p>
                 </div>
                 <div class="w-full max-w-2xl mx-auto">
                     <div class="video-container rounded-lg shadow-2xl overflow-hidden">
