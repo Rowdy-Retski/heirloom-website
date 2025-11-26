@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Heirloom Store</title>
+    <title>The Heirloom Store - Holiday Edition</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -21,6 +21,7 @@
             --btn-shadow: #8e4d58; /* Darker shade of rose gold for 3D effect */
         }
         body {
+            /* Preserving original background image reference */
             background-image: url('1171323-1.webp');
             background-attachment: fixed;
             background-position: center center;
@@ -28,6 +29,8 @@
             background-size: cover;
             color: var(--text-charcoal);
             font-family: 'Inter', sans-serif;
+            position: relative; /* Essential for fixed decorations */
+            overflow-x: hidden; /* Prevent side scrolling from absolute elements */
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
@@ -35,12 +38,32 @@
         .content-section {
              background-color: var(--bg-parchment);
         }
+        
+        /* Snow Pattern for Translucent Sections */
         .content-section-translucent {
+            position: relative; 
             background-color: rgba(245, 240, 230, 0.9); /* Translucent Parchment */
-             backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+            overflow: hidden; 
         }
+
+        .content-section-translucent::after {
+            content: "";
+            /* Rose Gold Dotted Pattern to simulate snow texture */
+            background-image: radial-gradient(var(--accent-rose-gold) 1.5px, transparent 1.5px);
+            background-size: 30px 30px; 
+            opacity: 0.15; 
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1; 
+            pointer-events: none; 
+        }
+
         .header-logo {
-            height: 100px; /* Increased from 50px to 100px */
+            height: 100px;
             width: auto;
         }
         .video-container {
@@ -64,52 +87,134 @@
             background-color: var(--accent-rose-gold);
             color: #ffffff;
             font-weight: 700;
-            padding: 0.5rem 1.25rem;
-            border-radius: 9999px; /* Fully rounded */
+            padding: 0.5rem 1rem; 
+            border-radius: 9999px; 
             border: none;
             transition: all 0.1s ease;
-            box-shadow: 0px 4px 0px var(--btn-shadow); /* The 3D "side" */
+            box-shadow: 0px 4px 0px var(--btn-shadow); 
             text-transform: uppercase;
-            font-size: 0.875rem; /* text-sm */
+            font-size: 0.75rem; 
             letter-spacing: 0.05em;
             display: inline-block;
             text-decoration: none;
             cursor: pointer;
+            white-space: nowrap; 
         }
         
         .btn-3d:hover {
             filter: brightness(110%);
             transform: translateY(-1px);
             box-shadow: 0px 5px 0px var(--btn-shadow);
+            color: #ffffff; 
         }
 
         .btn-3d:active {
-            transform: translateY(4px); /* Push down effect */
-            box-shadow: 0px 0px 0px var(--btn-shadow); /* Hide shadow when pressed */
+            transform: translateY(4px); 
+            box-shadow: 0px 0px 0px var(--btn-shadow); 
         }
+
+        /* --- HOLIDAY DECORATIONS CSS --- */
+
+        /* Falling Snowflakes */
+        .snowflake {
+            position: fixed;
+            top: -20px;
+            color: #fff;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 4px #000; 
+            z-index: 9999;
+            pointer-events: none;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(105vh); }
+        }
+
+        /* Fixed Decorations */
+        .holiday-fixed-img {
+            position: fixed;
+            z-index: 50; /* High Z-Index to ensure visibility */
+            pointer-events: none;
+            /* mix-blend-mode: multiply;  
+               Note: If your images have a white background, 'multiply' makes it transparent. 
+               If your images are already transparent PNGs, you can remove this line. 
+               Since the filenames end in .jpg, we assume white backgrounds. */
+            mix-blend-mode: multiply; 
+        }
+
+        .holiday-holly {
+            top: 0;
+            left: 0;
+            width: 180px;
+            max-width: 30vw; /* Responsive sizing */
+            height: auto;
+        }
+
+        .holiday-cane {
+            bottom: -30px;
+            right: -20px;
+            width: 140px;
+            max-width: 25vw;
+            height: auto; 
+            transform: rotate(-10deg);
+        }
+        
+        /* Festive Headers */
+        h2::before {
+            content: '🎄 ';
+            margin-right: 8px;
+        }
+        
+        /* Header Lights */
+        .header-lights {
+            position: absolute;
+            bottom: -20px; /* Hangs below the nav */
+            left: 0;
+            width: 100%;
+            height: 45px;
+            object-fit: cover; /* Stretches across the screen */
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            z-index: 60;
+            opacity: 0.9;
+        }
+
     </style>
 </head>
 <body class="text-charcoal">
 
-    <header class="bg-parchment/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <!-- DECORATION ELEMENTS (Fixed Position) -->
+    <!-- Added onerror to hide them cleanly if files are missing in preview -->
+    <img src="holly-christmas-corner.jpg" class="holiday-fixed-img holiday-holly" alt="Christmas Holly Decoration" onerror="this.style.display='none'">
+    <img src="Realistic_Candy_Cane.jpg" class="holiday-fixed-img holiday-cane" alt="Christmas Candy Cane" onerror="this.style.display='none'">
+
+    <header class="bg-parchment/80 backdrop-blur-md shadow-sm relative">
+        <!-- Lights Image inside Header -->
+        <img src="christmas-lights-png.jpg" class="header-lights" alt="Christmas Lights" onerror="this.style.display='none'">
+
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center relative z-50">
             <a href="#home" class="flex items-center space-x-2">
                 <img src="1.png" alt="The Heirloom Store Logo" class="header-logo">
             </a>
             
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#mansion" class="hover:text-rose-gold transition-colors font-medium">The Mansion</a>
-                <a href="#about" class="hover:text-rose-gold transition-colors font-medium">About Us</a>
-                <a href="#contact" class="hover:text-rose-gold transition-colors font-medium">Contact</a>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-3 items-center">
+                <a href="#mansion" class="btn-3d">The Mansion</a>
+                <a href="#about" class="btn-3d">About Us</a>
+                <a href="#contact" class="btn-3d">Contact</a>
                 
-                <div class="flex space-x-4 ml-4">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d">
-                        Vendor Application
-                    </a>
-                    <a href="https://shop.theheirloomstore.com" target="_blank" rel="noopener noreferrer" class="btn-3d">
-                        Shop Online
-                    </a>
-                </div>
+                <div class="w-px h-8 bg-gray-300 mx-2"></div>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d">
+                    Vendor App
+                </a>
+                <a href="https://shop.theheirloomstore.com" target="_blank" rel="noopener noreferrer" class="btn-3d">
+                    Shop Online
+                </a>
             </div>
 
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md">
@@ -117,7 +222,7 @@
             </button>
         </nav>
         
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 bg-parchment/95 shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 bg-parchment/95 shadow-lg relative z-50">
              <a href="#mansion" class="block py-3 hover:text-rose-gold font-medium border-b border-gray-200">The Mansion</a>
              <a href="#about" class="block py-3 hover:text-rose-gold font-medium border-b border-gray-200">About Us</a>
              <a href="#contact" class="block py-3 hover:text-rose-gold font-medium border-b border-gray-200 mb-4">Contact</a>
@@ -138,8 +243,13 @@
             <div class="absolute inset-0 bg-black opacity-40 z-10"></div>
             <div class="relative z-20 container mx-auto px-6 text-center">
                 <div class="text-white mb-8">
-                    <h1 class="text-4xl lg:text-6xl font-bold mb-4">Welcome to The Heirloom Store at the Maple Street Mansion</h1>
-                    <p class="text-lg lg:text-2xl">Exquisite Heirlooms, Enduring Love</p>
+                    <!-- UPDATED HEADER TEXT -->
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-4">
+                        Happy Holidays<br>
+                        The Heirloom Store<br>
+                        at the Maple Street Mansion
+                    </h1>
+                    <p class="text-lg lg:text-2xl">Gifts that last a lifetime!</p>
                 </div>
                 <div class="w-full max-w-2xl mx-auto">
                     <div class="video-container rounded-lg shadow-2xl overflow-hidden">
@@ -261,6 +371,39 @@
     </footer>
     
     <script>
+        // --- JAVASCRIPT FOR FALLING SNOW ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const snowContainer = document.body;
+            
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                
+                // You can use a character or an image tag here
+                snowflake.innerText = '❄'; 
+                
+                // Randomize position and animation
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.opacity = Math.random();
+                // Random Size
+                snowflake.style.fontSize = (Math.random() * 20 + 10) + 'px'; 
+                
+                // Randomize speed
+                const duration = Math.random() * 3 + 4; // Between 4 and 7 seconds
+                snowflake.style.animationDuration = duration + 's';
+
+                snowContainer.appendChild(snowflake);
+
+                // Remove snowflake after it falls
+                setTimeout(() => {
+                    snowflake.remove();
+                }, duration * 1000);
+            }
+
+            // Create a snowflake every 200 milliseconds
+            setInterval(createSnowflake, 200);
+        });
+
         // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
