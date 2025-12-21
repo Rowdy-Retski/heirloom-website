@@ -9,7 +9,6 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Added 'Great Vibes' font for the festive header -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -184,12 +183,9 @@
 </head>
 <body class="text-charcoal">
 
-    <!-- DECORATION ELEMENTS (Fixed Position) -->
-    <!-- Added onerror to hide them cleanly if files are missing in preview -->
     <img src="Realistic_Candy_Cane.png" class="holiday-fixed-img holiday-cane" alt="Christmas Candy Cane" onerror="this.style.display='none'">
 
     <header class="bg-parchment/80 backdrop-blur-md shadow-sm relative">
-        <!-- Lights Image inside Header -->
         <img src="christmas-lights-png.png" class="header-lights" alt="Christmas Lights" onerror="this.style.display='none'">
 
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center relative z-50">
@@ -197,7 +193,6 @@
                 <img src="1.png" alt="The Heirloom Store Logo" class="header-logo">
             </a>
             
-            <!-- Desktop Navigation -->
             <div class="hidden md:flex space-x-3 items-center">
                 <a href="#mansion" class="btn-3d">The Mansion</a>
                 <a href="#about" class="btn-3d">About Us</a>
@@ -239,8 +234,6 @@
             <div class="absolute inset-0 bg-black opacity-40 z-10"></div>
             <div class="relative z-20 container mx-auto px-6 text-center">
                 <div class="text-white mb-8">
-                    <!-- UPDATED HEADER WITH NEW FONT AND SIZE -->
-                    <!-- Increased size slightly (text-5xl to text-7xl) because script fonts appear smaller -->
                     <h1 class="font-holiday text-5xl lg:text-7xl mb-4">
                         Happy Holidays<br>
                         The Heirloom Store<br>
