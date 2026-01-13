@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Heirloom Store - Holiday Edition</title>
+    <title>The Heirloom Store - Valentine's Edition</title>
     
-    <!-- Favicon added here -->
     <link rel="icon" href="1.png" type="image/png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,7 +20,7 @@
             --accent-rose-gold: #B76E79;
             --accent-sage: #A9B4A8;
             --accent-mauve: #C7B0B6;
-            --btn-shadow: #8e4d58; /* Darker shade of rose gold for 3D effect */
+            --btn-shadow: #8e4d58; 
         }
         body {
             /* Preserving original background image reference */
@@ -32,37 +31,37 @@
             background-size: cover;
             color: var(--text-charcoal);
             font-family: 'Inter', sans-serif;
-            position: relative; /* Essential for fixed decorations */
-            overflow-x: hidden; /* Prevent side scrolling from absolute elements */
+            position: relative; 
+            overflow-x: hidden; 
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
         }
         
-        /* Custom Holiday Font Class */
+        /* Custom Script Font Class */
         .font-holiday {
             font-family: 'Great Vibes', cursive;
-            font-weight: 400; /* Script fonts often don't need bold */
+            font-weight: 400; 
             letter-spacing: 2px;
             line-height: 1.2;
-            text-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Adds a nice pop against the background */
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3); 
         }
 
         .content-section {
              background-color: var(--bg-parchment);
         }
         
-        /* Snow Pattern for Translucent Sections */
+        /* Translucent Sections */
         .content-section-translucent {
             position: relative; 
-            background-color: rgba(245, 240, 230, 0.9); /* Translucent Parchment */
+            background-color: rgba(245, 240, 230, 0.9); 
             backdrop-filter: blur(4px);
             overflow: hidden; 
         }
 
         .content-section-translucent::after {
             content: "";
-            /* Rose Gold Dotted Pattern to simulate snow texture */
+            /* Rose Gold Dotted Pattern */
             background-image: radial-gradient(var(--accent-rose-gold) 1.5px, transparent 1.5px);
             background-size: 30px 30px; 
             opacity: 0.15; 
@@ -126,16 +125,16 @@
             box-shadow: 0px 0px 0px var(--btn-shadow); 
         }
 
-        /* --- HOLIDAY DECORATIONS CSS --- */
+        /* --- VALENTINE DECORATIONS CSS --- */
 
-        /* Falling Snowflakes */
-        .snowflake {
+        /* Falling Hearts */
+        .falling-heart {
             position: fixed;
             top: -20px;
-            color: #fff;
+            /* Color is handled by JS for variety */
             font-size: 1em;
             font-family: Arial, sans-serif;
-            text-shadow: 0 0 4px #000; 
+            text-shadow: 0 0 2px rgba(0,0,0,0.2); 
             z-index: 9999;
             pointer-events: none;
             animation-name: fall;
@@ -144,53 +143,60 @@
         }
 
         @keyframes fall {
-            to { transform: translateY(105vh); }
+            to { transform: translateY(105vh) rotate(360deg); }
         }
 
         /* Fixed Decorations */
-        .holiday-fixed-img {
+        .vday-fixed-img {
             position: fixed;
-            z-index: 50; /* High Z-Index to ensure visibility */
+            z-index: 50; 
             pointer-events: none;
         }
 
-        .holiday-cane {
-            bottom: -30px;
-            right: -20px;
-            width: 140px;
-            max-width: 25vw;
+        .cupid-corner {
+            bottom: 20px;
+            right: 20px;
+            width: 180px;
+            max-width: 30vw;
             height: auto; 
-            transform: rotate(-10deg);
+            /* Slight float animation */
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
         
         /* Festive Headers */
         h2::before {
-            content: '🎄 ';
+            content: '❤ ';
+            color: var(--accent-rose-gold);
             margin-right: 8px;
         }
         
-        /* Header Lights */
-        .header-lights {
+        /* Header Garland */
+        .header-garland {
             position: absolute;
-            bottom: -35px; /* Lowered further to prevent chopping */
+            bottom: -35px; 
             left: 0;
             width: 100%;
-            height: 55px; /* Increased height slightly */
-            object-fit: cover; /* Stretches across the screen */
+            height: 60px; 
+            object-fit: cover; 
             pointer-events: none;
             z-index: 60;
-            opacity: 0.9;
+            filter: drop-shadow(0 4px 3px rgba(0,0,0,0.2));
         }
 
     </style>
 </head>
 <body class="text-charcoal">
 
-    <img src="Realistic_Candy_Cane.png" class="holiday-fixed-img holiday-cane" alt="Christmas Candy Cane" onerror="this.style.display='none'">
+    <img src="Cupid_Decoration.png" class="vday-fixed-img cupid-corner" alt="Cupid" onerror="this.style.display='none'">
 
-    <!-- Updated header to be sticky (sticky top-0 z-[100]) so it follows the user -->
     <header class="bg-parchment/80 backdrop-blur-md shadow-sm sticky top-0 z-[100]">
-        <img src="christmas-lights-png.png" class="header-lights" alt="Christmas Lights" onerror="this.style.display='none'">
+        <img src="Valentines_Hearts_Garland.png" class="header-garland" alt="Hearts Garland" onerror="this.style.display='none'">
 
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center relative z-50">
             <a href="#home" class="flex items-center space-x-2">
@@ -207,7 +213,6 @@
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d">
                     Vendor App
                 </a>
-                <!-- Removed target="_blank" to open in current tab -->
                 <a href="https://shop.theheirloomstore.com" class="btn-3d">
                     Shop Online
                 </a>
@@ -227,7 +232,6 @@
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d w-full text-center">
                     Vendor Application
                 </a>
-                <!-- Removed target="_blank" to open in current tab -->
                 <a href="https://shop.theheirloomstore.com" class="btn-3d w-full text-center">
                     Shop Online
                 </a>
@@ -241,11 +245,11 @@
             <div class="relative z-20 container mx-auto px-6 text-center">
                 <div class="text-white mb-8">
                     <h1 class="font-holiday text-5xl lg:text-7xl mb-4">
-                        Happy Holidays<br>
+                        Happy Valentine's Day<br>
                         The Heirloom Store<br>
                         at the Maple Street Mansion
                     </h1>
-                    <p class="text-lg lg:text-2xl mt-6">Gifts that last a lifetime!</p>
+                    <p class="text-lg lg:text-2xl mt-6">Gifts of Love that last a lifetime!</p>
                 </div>
                 <div class="w-full max-w-2xl mx-auto">
                     <div class="video-container rounded-lg shadow-2xl overflow-hidden">
@@ -367,37 +371,42 @@
     </footer>
     
     <script>
-        // --- JAVASCRIPT FOR FALLING SNOW ---
+        // --- JAVASCRIPT FOR FALLING HEARTS ---
         document.addEventListener("DOMContentLoaded", function() {
-            const snowContainer = document.body;
+            const container = document.body;
+            // Palette: Red, Pink, Rose Gold, White
+            const heartColors = ['#e11d48', '#ec4899', '#fda4af', '#ffffff']; 
             
-            function createSnowflake() {
-                const snowflake = document.createElement('div');
-                snowflake.classList.add('snowflake');
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('falling-heart');
                 
-                // You can use a character or an image tag here
-                snowflake.innerText = '❄'; 
+                heart.innerText = '❤'; 
                 
+                // Randomize Color
+                heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+
                 // Randomize position and animation
-                snowflake.style.left = Math.random() * 100 + 'vw';
-                snowflake.style.opacity = Math.random();
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.opacity = Math.random() * 0.7 + 0.3;
+                
                 // Random Size
-                snowflake.style.fontSize = (Math.random() * 20 + 10) + 'px'; 
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px'; 
                 
                 // Randomize speed
                 const duration = Math.random() * 3 + 4; // Between 4 and 7 seconds
-                snowflake.style.animationDuration = duration + 's';
+                heart.style.animationDuration = duration + 's';
 
-                snowContainer.appendChild(snowflake);
+                container.appendChild(heart);
 
-                // Remove snowflake after it falls
+                // Remove heart after it falls
                 setTimeout(() => {
-                    snowflake.remove();
+                    heart.remove();
                 }, duration * 1000);
             }
 
-            // Create a snowflake every 200 milliseconds
-            setInterval(createSnowflake, 200);
+            // Create a heart every 200 milliseconds
+            setInterval(createHeart, 200);
         });
 
         // Mobile Menu Toggle
