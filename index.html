@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Heirloom Store - Valentine's Edition</title>
+    <title>The Heirloom Store - St. Patrick's Day Edition</title>
     
     <link rel="icon" href="1.png" type="image/png">
     
@@ -16,14 +16,13 @@
     <style>
         :root {
             --bg-parchment: #F5F0E6;
-            --text-charcoal: #2D2D2D;
-            --accent-rose-gold: #B76E79;
-            --accent-sage: #A9B4A8;
-            --accent-mauve: #C7B0B6;
-            --btn-shadow: #8e4d58; 
+            --text-charcoal: #212121;
+            --accent-emerald: #047857;
+            --accent-gold: #D97706;
+            --accent-forest: #064E3B;
+            --btn-shadow: #064e3b; 
         }
         body {
-            /* Preserving original background image reference */
             background-image: url('1171323-1.webp');
             background-attachment: fixed;
             background-position: center center;
@@ -38,7 +37,6 @@
             font-family: 'Playfair Display', serif;
         }
         
-        /* Custom Script Font Class */
         .font-holiday {
             font-family: 'Great Vibes', cursive;
             font-weight: 400; 
@@ -51,20 +49,18 @@
              background-color: var(--bg-parchment);
         }
         
-        /* Translucent Sections */
         .content-section-translucent {
             position: relative; 
-            background-color: rgba(245, 240, 230, 0.9); 
+            background-color: rgba(245, 240, 230, 0.92); 
             backdrop-filter: blur(4px);
             overflow: hidden; 
         }
 
         .content-section-translucent::after {
             content: "";
-            /* Rose Gold Dotted Pattern */
-            background-image: radial-gradient(var(--accent-rose-gold) 1.5px, transparent 1.5px);
+            background-image: radial-gradient(var(--accent-emerald) 1.5px, transparent 1.5px);
             background-size: 30px 30px; 
-            opacity: 0.15; 
+            opacity: 0.1; 
             top: 0;
             left: 0;
             bottom: 0;
@@ -80,7 +76,7 @@
         }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
             max-width: 100%;
@@ -94,9 +90,8 @@
             height: 100%;
         }
 
-        /* 3D BUTTON STYLES */
         .btn-3d {
-            background-color: var(--accent-rose-gold);
+            background-color: var(--accent-emerald);
             color: #ffffff;
             font-weight: 700;
             padding: 0.5rem 1rem; 
@@ -125,16 +120,11 @@
             box-shadow: 0px 0px 0px var(--btn-shadow); 
         }
 
-        /* --- VALENTINE DECORATIONS CSS --- */
-
-        /* Falling Hearts */
-        .falling-heart {
+        /* Falling Clovers */
+        .falling-clover {
             position: fixed;
-            top: -20px;
-            /* Color is handled by JS for variety */
-            font-size: 1em;
-            font-family: Arial, sans-serif;
-            text-shadow: 0 0 2px rgba(0,0,0,0.2); 
+            top: -30px;
+            font-size: 1.5em;
             z-index: 9999;
             pointer-events: none;
             animation-name: fall;
@@ -143,40 +133,38 @@
         }
 
         @keyframes fall {
-            to { transform: translateY(105vh) rotate(360deg); }
+            to { transform: translateY(110vh) rotate(720deg); }
         }
 
-        /* Fixed Decorations */
-        .vday-fixed-img {
+        /* Floating Leprechaun Container */
+        .leprechaun-container {
             position: fixed;
-            z-index: 50; 
-            pointer-events: none;
-        }
-
-        .cupid-corner {
             bottom: 20px;
             right: 20px;
+            z-index: 200;
             width: 180px;
-            max-width: 30vw;
-            height: auto; 
-            /* Slight float animation */
-            animation: float 3s ease-in-out infinite;
+            pointer-events: none;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .leprechaun-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            animation: jig 1.5s ease-in-out infinite;
+        }
+
+        @keyframes jig {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-15px) rotate(3deg) scale(1.05); }
         }
         
-        /* Festive Headers */
         h2::before {
-            content: '❤ ';
-            color: var(--accent-rose-gold);
+            content: '☘ ';
+            color: var(--accent-emerald);
             margin-right: 8px;
         }
         
-        /* Header Garland */
         .header-garland {
             position: absolute;
             bottom: -35px; 
@@ -193,10 +181,13 @@
 </head>
 <body class="text-charcoal">
 
-    <img src="Cupid_Decoration.png" class="vday-fixed-img cupid-corner" alt="Cupid" onerror="this.style.display='none'">
+    <!-- Leprechaun Image - Updated reference to .PNG -->
+    <div class="leprechaun-container">
+        <img src="leprachaun.PNG" class="leprechaun-img" alt="St. Patrick's Leprechaun">
+    </div>
 
     <header class="bg-parchment/80 backdrop-blur-md shadow-sm sticky top-0 z-[100]">
-        <img src="Valentines_Hearts_Garland.png" class="header-garland" alt="Hearts Garland" onerror="this.style.display='none'">
+        <img src="St_Patricks_Garland.png" class="header-garland" alt="Clover Garland" onerror="this.style.display='none'">
 
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center relative z-50">
             <a href="#home" class="flex items-center space-x-2">
@@ -224,9 +215,9 @@
         </nav>
         
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 bg-parchment/95 shadow-lg relative z-50">
-             <a href="#mansion" class="block py-3 hover:text-rose-gold font-medium border-b border-gray-200">The Mansion</a>
-             <a href="#about" class="block py-3 hover:text-rose-gold font-medium border-b border-gray-200">About Us</a>
-             <a href="#contact" class="block py-3 hover:text-rose-gold font-medium border-b border-gray-200 mb-4">Contact</a>
+             <a href="#mansion" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200">The Mansion</a>
+             <a href="#about" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200">About Us</a>
+             <a href="#contact" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200 mb-4">Contact</a>
              
              <div class="flex flex-col space-y-4 items-center">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d w-full text-center">
@@ -241,15 +232,15 @@
 
     <main>
         <section id="home" class="relative h-screen min-h-[800px] flex items-center justify-center">
-            <div class="absolute inset-0 bg-black opacity-40 z-10"></div>
+            <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
             <div class="relative z-20 container mx-auto px-6 text-center">
                 <div class="text-white mb-8">
                     <h1 class="font-holiday text-5xl lg:text-7xl mb-4">
-                        Happy Valentine's Day<br>
+                        Happy St. Patrick's Day<br>
                         The Heirloom Store<br>
                         at the Maple Street Mansion
                     </h1>
-                    <p class="text-lg lg:text-2xl mt-6">Gifts of Love that last a lifetime!</p>
+                    <p class="text-lg lg:text-2xl mt-6">Find your treasure at the end of the rainbow!</p>
                 </div>
                 <div class="w-full max-w-2xl mx-auto">
                     <div class="video-container rounded-lg shadow-2xl overflow-hidden">
@@ -265,7 +256,7 @@
             <div class="py-16 md:py-24">
                 <div class="container mx-auto px-6 text-center max-w-4xl">
                     <p class="text-xl md:text-2xl leading-relaxed">
-                        This space is a celebration of the mansion’s rich history and a testament to the enduring spirit of craftsmanship. Visitors can discover a curated collection of handcrafted, vintage, and custom-made treasures from talented local vendors.
+                        Step into a world of luck and history. Discover a curated collection of handcrafted, vintage, and custom-made treasures from talented local artisans in our historic landmark.
                     </p>
                 </div>
             </div>
@@ -273,22 +264,22 @@
                 <div class="container mx-auto px-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="text-center group">
-                            <img src="463460067_8659471954118911_5530255364321993702_n.jpg" alt="Historic grey photo of mansion" class="w-full h-64 object-cover rounded-lg shadow-lg mb-4 transform group-hover:scale-105 transition-transform">
+                            <img src="463460067_8659471954118911_5530255364321993702_n.jpg" alt="Historic grey photo of mansion" class="w-full h-64 object-cover rounded-lg shadow-lg mb-4 transform group-hover:scale-105 transition-transform border-b-4 border-emerald-700">
                             <h3 class="text-2xl font-bold mb-2">The History of the Mansion</h3>
                             <p class="mb-4">A vibrant landmark in Carrollton, captivating residents and visitors alike since 1890.</p>
-                            <a href="#mansion" class="font-bold text-rose-gold">Learn More &rarr;</a>
+                            <a href="#mansion" class="font-bold text-emerald-700">Learn More &rarr;</a>
                         </div>
                         <div class="text-center group">
-                            <img src="f7250c4d-801e-4b1d-8ad4-799342ce7af1.jpg" alt="Portrait of Malina Falkner" class="w-full h-64 object-cover rounded-lg shadow-lg mb-4 transform group-hover:scale-105 transition-transform">
+                            <img src="f7250c4d-801e-4b1d-8ad4-799342ce7af1.jpg" alt="Portrait of Malina Falkner" class="w-full h-64 object-cover rounded-lg shadow-lg mb-4 transform group-hover:scale-105 transition-transform border-b-4 border-emerald-700">
                             <h3 class="text-2xl font-bold mb-2">Meet the Founder</h3>
                             <p class="mb-4">With a lifelong passion for handcrafted artistry and vintage treasures, Malina Falkner founded The Heirloom Store.</p>
-                            <a href="#about" class="font-bold text-rose-gold">Read Her Story &rarr;</a>
+                            <a href="#about" class="font-bold text-emerald-700">Read Her Story &rarr;</a>
                         </div>
                         <div class="text-center group">
-                            <img src="464002993_8689113041154802_5960375556208885290_n.jpg" alt="Attic window light" class="w-full h-64 object-cover rounded-lg shadow-lg mb-4 transform group-hover:scale-105 transition-transform">
+                            <img src="464002993_8689113041154802_5960375556208885290_n.jpg" alt="Attic window light" class="w-full h-64 object-cover rounded-lg shadow-lg mb-4 transform group-hover:scale-105 transition-transform border-b-4 border-emerald-700">
                             <h3 class="text-2xl font-bold mb-2">Our Philosophy</h3>
                             <p class="mb-4">Our mission is for every customer to leave with more than just an item—they leave with a piece of a story.</p>
-                            <a href="#about" class="font-bold text-rose-gold">Discover Our Mission &rarr;</a>
+                            <a href="#about" class="font-bold text-emerald-700">Discover Our Mission &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -307,10 +298,10 @@
                         <p>Now, the Maple Street Mansion is embarking on a new chapter, embracing its role as a showcase for local artisans and creators. Saved from demolition in 2014 thanks to the dedication of local residents, it continues to thrive as a testament to love, family, and community.</p>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <img src="401-Maple-St-Carrollton-GA-Primary-Photo-1-HighDefinition.jpg" alt="Purple and cream exterior of the mansion" class="rounded-lg shadow-lg aspect-square object-cover">
-                        <img src="463253784_8654145337984906_1094212845355390835_n.jpg" alt="Mansion at night with water tower" class="rounded-lg shadow-lg aspect-square object-cover">
-                        <img src="463552307_8654258261306947_1621956945816906871_n.jpg" alt="Vintage red and white exterior of mansion" class="rounded-lg shadow-lg aspect-square object-cover">
-                        <img src="463992504_8701738569892249_2507384441854007386_n.jpg" alt="Interior room with fireplace" class="rounded-lg shadow-lg aspect-square object-cover">
+                        <img src="401-Maple-St-Carrollton-GA-Primary-Photo-1-HighDefinition.jpg" alt="Exterior" class="rounded-lg shadow-lg aspect-square object-cover">
+                        <img src="463253784_8654145337984906_1094212845355390835_n.jpg" alt="Mansion at night" class="rounded-lg shadow-lg aspect-square object-cover">
+                        <img src="463552307_8654258261306947_1621956945816906871_n.jpg" alt="Vintage exterior" class="rounded-lg shadow-lg aspect-square object-cover">
+                        <img src="463992504_8701738569892249_2507384441854007386_n.jpg" alt="Interior" class="rounded-lg shadow-lg aspect-square object-cover">
                     </div>
                 </div>
             </div>
@@ -325,11 +316,10 @@
                     <div class="md:w-1/2 prose max-w-none text-charcoal">
                         <p>Our story began in 2013, born from a place of grief and a place of healing. After the heartbreaking loss of my mother, I found solace in creating—taking ordinary, forgotten items and transforming them into something special. What began as a personal outlet quickly grew into a passion for upcycling and crafting.</p>
                         <p>Tragedy struck again with the loss of my son, but instead of breaking me, it fueled my determination. I realized that life is about leaving a legacy, something that speaks of resilience, love, and connection. Each piece I create holds that sentiment, infused with memory and purpose.</p>
-                        <p>This vision inspired me to open a boutique where the products are not just items, but stories waiting to be shared. My mission is for every customer to leave with more than just a beautiful item—they leave with a piece of a story that can be cherished and passed down.</p>
                     </div>
                     <div class="md:w-1/2 grid grid-cols-2 gap-4">
-                        <img src="858091_10200556907826799_882688512_o.jpg" alt="Founder with her mother" class="rounded-lg shadow-lg object-cover w-full h-full">
-                        <img src="062-scaled.jpg" alt="Founder hugging her son" class="rounded-lg shadow-lg object-cover w-full h-full">
+                        <img src="858091_10200556907826799_882688512_o.jpg" alt="Founder with mother" class="rounded-lg shadow-lg object-cover w-full h-full">
+                        <img src="062-scaled.jpg" alt="Founder with son" class="rounded-lg shadow-lg object-cover w-full h-full">
                     </div>
                  </div>
             </div>
@@ -339,19 +329,18 @@
 
         <section id="contact" class="py-16 md:py-24 content-section-translucent">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold mb-4">We're Here to Help</h2>
-                <p class="max-w-2xl mx-auto mb-8">Have questions or inquiries? Reach out to us anytime and we’ll assist you with joy!</p>
+                <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
                     <div>
                         <h4 class="text-xl font-bold mb-1">Address</h4>
                         <p>401 Maple Street<br>Carrollton, GA 30117</p>
                     </div>
-                    <div class="w-px h-16 bg-sage hidden md:block"></div>
+                    <div class="w-px h-16 bg-emerald-600 hidden md:block"></div>
                     <div>
                         <h4 class="text-xl font-bold mb-1">Phone</h4>
                         <p>(678) 390-0336</p>
                     </div>
-                     <div class="w-px h-16 bg-sage hidden md:block"></div>
+                     <div class="w-px h-16 bg-emerald-600 hidden md:block"></div>
                     <div>
                         <h4 class="text-xl font-bold mb-1">Email</h4>
                         <p>support@theheirloomstore.com</p>
@@ -361,77 +350,37 @@
         </section>
     </main>
 
-    <footer class="bg-charcoal text-white">
+    <footer class="bg-emerald-950 text-white">
         <div class="container mx-auto px-6 py-8 text-center">
-            <p>&copy; 2024 The Heirloom Store LLC. All Rights Reserved.</p>
-            <div class="mt-4 space-x-4">
-                <a href="#" class="text-sm text-gray-400 hover:text-white">Privacy Policy</a>
-            </div>
+            <p>&copy; 2025 The Heirloom Store LLC. All Rights Reserved.</p>
         </div>
     </footer>
     
     <script>
-        // --- JAVASCRIPT FOR FALLING HEARTS ---
         document.addEventListener("DOMContentLoaded", function() {
             const container = document.body;
-            // Palette: Red, Pink, Rose Gold, White
-            const heartColors = ['#e11d48', '#ec4899', '#fda4af', '#ffffff']; 
+            const cloverColors = ['#10b981', '#4ade80', '#064e3b', '#fbbf24']; 
+            const cloverSymbols = ['☘', '🍀'];
             
-            function createHeart() {
-                const heart = document.createElement('div');
-                heart.classList.add('falling-heart');
-                
-                heart.innerText = '❤'; 
-                
-                // Randomize Color
-                heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
-
-                // Randomize position and animation
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.opacity = Math.random() * 0.7 + 0.3;
-                
-                // Random Size
-                heart.style.fontSize = (Math.random() * 20 + 10) + 'px'; 
-                
-                // Randomize speed
-                const duration = Math.random() * 3 + 4; // Between 4 and 7 seconds
-                heart.style.animationDuration = duration + 's';
-
-                container.appendChild(heart);
-
-                // Remove heart after it falls
-                setTimeout(() => {
-                    heart.remove();
-                }, duration * 1000);
+            function createClover() {
+                const clover = document.createElement('div');
+                clover.classList.add('falling-clover');
+                clover.innerText = cloverSymbols[Math.floor(Math.random() * cloverSymbols.length)];
+                clover.style.color = cloverColors[Math.floor(Math.random() * cloverColors.length)];
+                clover.style.left = Math.random() * 100 + 'vw';
+                clover.style.opacity = Math.random() * 0.6 + 0.3;
+                clover.style.fontSize = (Math.random() * 25 + 15) + 'px'; 
+                const duration = Math.random() * 4 + 5; 
+                clover.style.animationDuration = duration + 's';
+                container.appendChild(clover);
+                setTimeout(() => clover.remove(), duration * 1000);
             }
-
-            // Create a heart every 200 milliseconds
-            setInterval(createHeart, 200);
+            setInterval(createClover, 300);
         });
 
-        // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        const navLinks = document.querySelectorAll('header nav a[href^="#"]');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        const mobileLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     </script>
 
 </body>
