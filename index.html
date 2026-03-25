@@ -18,14 +18,14 @@
             --bg-parchment: #FDFBF6; 
             --text-charcoal: #333333; 
             --accent-spring: #98D7C2; 
-            --accent-pink: #F48FB1; /* New Pink for buttons */
+            --accent-pink: #F48FB1; 
             --accent-gold: #F5D76E;  
             --accent-bright-gold: #D4AF37; 
             --accent-rose-gold: #FFB7C5; 
             --bright-rose-gold: #E5A1A9;
             --accent-forest: #228B22; 
-            --btn-shadow: #C2185B; /* Darker pink for button shadow */
-            --header-brown: #4A3728; /* Darker brown for the title */
+            --btn-shadow: #C2185B; 
+            --header-brown: #4A3728; 
         }
         body {
             background-image: url('easter-mansion.png'); 
@@ -50,7 +50,6 @@
             text-shadow: 0 4px 6px rgba(0,0,0,0.5); 
         }
 
-        /* Darker brown header text, forced to single line and centered */
         .header-title {
             font-family: 'Great Vibes', cursive;
             color: var(--header-brown); 
@@ -176,7 +175,6 @@
             padding-right: 1.5rem;
         }
 
-        /* Circular logos scaled to content height */
         .header-logo-full {
             height: auto;
             width: 100px;
@@ -207,26 +205,26 @@
         <img src="bunny.png" class="bunny-img" alt="Easter Bunny" title="Happy Easter!">
     </div>
 
-    <!-- Unified Header: Side images stretch vertically, buttons at bottom -->
+    <!-- Unified Header -->
     <header class="bg-parchment/90 backdrop-blur-lg shadow-md sticky top-0 z-[100] border-b border-rose-100">
         <div class="flex flex-row items-stretch px-4 py-2">
             
-            <!-- Far Left Image: Centered vertically in its column -->
+            <!-- Far Left Image: Empty Tomb -->
             <div class="flex-shrink-0 flex items-center justify-center">
                 <img src="empty-tomb.png" alt="Empty Tomb" class="header-logo-full" onerror="this.src='https://img.icons8.com/ios-filled/200/mountain.png'">
             </div>
 
-            <!-- Central Column: Branding & Buttons stacked -->
+            <!-- Central Column: Branding, Buttons, & Hours -->
             <div class="flex-grow flex flex-col items-center justify-center px-4">
                 
-                <!-- Branding: Dark Brown text, large size -->
+                <!-- Branding -->
                 <div class="pt-2">
                     <h1 class="header-title text-4xl md:text-[4rem] lg:text-[5.5rem] font-bold">
                         The Heirloom Store
                     </h1>
                 </div>
 
-                <!-- Navigation Row: Centered at the bottom with Pink buttons -->
+                <!-- Navigation Row -->
                 <div class="hidden md:flex flex-row flex-nowrap justify-center gap-2 items-center pb-2">
                     <a href="#home" class="btn-3d">Home</a>
                     <a href="#mansion" class="btn-3d">The Mansion</a>
@@ -243,6 +241,14 @@
                     </a>
                 </div>
 
+                <!-- Store Hours Row -->
+                <div class="hidden md:flex flex-wrap justify-center gap-x-4 text-[0.6rem] lg:text-[0.7rem] font-bold text-[#634a36] uppercase tracking-widest opacity-80 pb-2">
+                    <span>Mon–Wed: 7am–4pm</span>
+                    <span>Thu–Fri: 7am–7pm</span>
+                    <span>Sat: 8am–4pm</span>
+                    <span>Sun: Closed</span>
+                </div>
+
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden pb-2">
                     <button id="mobile-menu-button" class="p-2 rounded-full bg-white/50 shadow-sm border border-emerald-100">
@@ -251,7 +257,7 @@
                 </div>
             </div>
 
-            <!-- Far Right Image: Centered vertically in its column -->
+            <!-- Far Right Image: Cross -->
             <div class="flex-shrink-0 flex items-center justify-center">
                 <img src="cross.png" alt="Cross" class="header-logo-full" onerror="this.src='https://img.icons8.com/ios-filled/200/plus.png'">
             </div>
@@ -271,6 +277,11 @@
                 <a href="https://shop.theheirloomstore.com" class="btn-3d w-full text-center">
                     Shop Online
                 </a>
+             </div>
+             <!-- Mobile Hours -->
+             <div class="mt-6 text-center text-[0.7rem] font-bold text-[#634a36] uppercase tracking-tighter">
+                <p>Mon-Wed: 7am-4pm | Thu-Fri: 7am-7pm</p>
+                <p>Sat: 8am-4pm | Sun: Closed</p>
              </div>
         </div>
     </header>
@@ -421,7 +432,7 @@
     <footer class="bg-emerald-950 text-white pt-20 pb-12">
         <div class="wide-container text-center">
             <div class="flex justify-center mb-10">
-                 <img src="heirloom-header.png" alt="Footer Logo" class="h-32 w-32 rounded-full border-4 border-white/20 hover:scale-110 transition-transform object-cover">
+                 <img src="1.png" alt="Footer Logo" class="h-32 w-32 rounded-full border-4 border-white/20 hover:scale-110 transition-transform object-cover">
             </div>
             <h3 class="font-holiday text-5xl mb-6 text-emerald-100">The Heirloom Store</h3>
             <div class="w-32 h-1 bg-accent-gold mx-auto mb-8"></div>
