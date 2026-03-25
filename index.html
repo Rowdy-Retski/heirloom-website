@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Heirloom Store - Easter Celebration</title>
     
-    <link rel="icon" href="empty-tomb.png" type="image/png">
+    <link rel="icon" href="heirloom-header.png" type="image/png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -18,10 +18,14 @@
             --bg-parchment: #FDFBF6; 
             --text-charcoal: #333333; 
             --accent-spring: #98D7C2; 
-            --accent-purple: #9370DB; 
+            --accent-pink: #F48FB1; /* New Pink for buttons */
             --accent-gold: #F5D76E;  
+            --accent-bright-gold: #D4AF37; 
+            --accent-rose-gold: #FFB7C5; 
+            --bright-rose-gold: #E5A1A9;
             --accent-forest: #228B22; 
-            --btn-shadow: #7B68EE; 
+            --btn-shadow: #C2185B; /* Darker pink for button shadow */
+            --header-brown: #4A3728; /* Darker brown for the title */
         }
         body {
             background-image: url('easter-mansion.png'); 
@@ -46,10 +50,14 @@
             text-shadow: 0 4px 6px rgba(0,0,0,0.5); 
         }
 
-        .font-logo-style {
+        /* Darker brown header text, forced to single line and centered */
+        .header-title {
             font-family: 'Great Vibes', cursive;
-            color: var(--text-charcoal);
+            color: var(--header-brown); 
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            line-height: 1.2;
+            white-space: nowrap;
+            padding: 0.5rem 0;
         }
 
         .content-section {
@@ -63,7 +71,6 @@
             overflow: hidden; 
         }
 
-        /* Easter Egg Pattern Background */
         .content-section-translucent::after {
             content: "";
             background-image: url('https://img.icons8.com/color/48/easter-egg.png');
@@ -76,21 +83,6 @@
             position: absolute;
             z-index: -1; 
             pointer-events: none; 
-        }
-
-        /* Header logo - Clarity enhanced */
-        .header-logo {
-            height: 240px; 
-            width: 240px;
-            object-fit: cover;
-            border-radius: 50%; 
-            filter: brightness(1.2) contrast(1.25) drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-            border: 6px solid white;
-            transition: transform 0.3s ease;
-        }
-        
-        .header-logo:hover {
-            transform: scale(1.03) rotate(-2deg);
         }
 
         .video-container {
@@ -110,16 +102,16 @@
         }
 
         .btn-3d {
-            background-color: var(--accent-purple);
+            background-color: var(--accent-pink);
             color: #ffffff;
             font-weight: 700;
-            padding: 0.6rem 1.2rem; 
+            padding: 0.35rem 0.75rem; 
             border-radius: 9999px; 
             border: none;
             transition: all 0.1s ease;
-            box-shadow: 0px 4px 0px var(--btn-shadow); 
+            box-shadow: 0px 3px 0px var(--btn-shadow); 
             text-transform: uppercase;
-            font-size: 0.85rem; 
+            font-size: 0.65rem; 
             letter-spacing: 0.05em;
             display: inline-block;
             text-decoration: none;
@@ -130,11 +122,11 @@
         .btn-3d:hover {
             filter: brightness(110%);
             transform: translateY(-1px);
-            box-shadow: 0px 5px 0px var(--btn-shadow);
+            box-shadow: 0px 4px 0px var(--btn-shadow);
         }
 
         .btn-3d:active {
-            transform: translateY(4px); 
+            transform: translateY(3px); 
             box-shadow: 0px 0px 0px var(--btn-shadow); 
         }
 
@@ -153,7 +145,6 @@
             to { transform: translateY(115vh) rotate(540deg); } 
         }
 
-        /* Floating Bunny Container */
         .bunny-container {
             position: fixed;
             bottom: 40px; 
@@ -175,26 +166,7 @@
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-30px) rotate(8deg); }
         }
-        
-        h2::before {
-            content: '🌸 '; 
-            color: var(--accent-purple);
-            margin-right: 8px;
-        }
-        
-        .header-garland {
-            position: absolute;
-            bottom: -35px; 
-            left: 0;
-            width: 100%;
-            height: 60px; 
-            object-fit: cover; 
-            pointer-events: none;
-            z-index: 60;
-            filter: drop-shadow(0 4px 3px rgba(0,0,0,0.2));
-        }
 
-        /* Responsive Wider Containers */
         .wide-container {
             width: 100%;
             max-width: 1600px;
@@ -204,58 +176,90 @@
             padding-right: 1.5rem;
         }
 
+        /* Circular logos scaled to content height */
+        .header-logo-full {
+            height: auto;
+            width: 100px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 9999px;
+            display: block;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        @media (min-width: 1024px) {
+            .header-logo-full {
+                width: 180px;
+            }
+        }
+
+        .header-logo-full:hover {
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body class="text-charcoal">
 
-    <!-- Bunny on the right side -->
     <div class="bunny-container" id="easter-bunny">
         <img src="bunny.png" class="bunny-img" alt="Easter Bunny" title="Happy Easter!">
     </div>
 
-    <header class="bg-parchment/85 backdrop-blur-lg shadow-md sticky top-0 z-[100] pb-4">
-        <img src="https://img.icons8.com/parakeet/100/cherry-blossom.png" class="header-garland" alt="Spring Blossom Garland" onerror="this.style.display='none'">
+    <!-- Unified Header: Side images stretch vertically, buttons at bottom -->
+    <header class="bg-parchment/90 backdrop-blur-lg shadow-md sticky top-0 z-[100] border-b border-rose-100">
+        <div class="flex flex-row items-stretch px-4 py-2">
+            
+            <!-- Far Left Image: Centered vertically in its column -->
+            <div class="flex-shrink-0 flex items-center justify-center">
+                <img src="empty-tomb.png" alt="Empty Tomb" class="header-logo-full" onerror="this.src='https://img.icons8.com/ios-filled/200/mountain.png'">
+            </div>
 
-        <div class="wide-container">
-            <div class="flex flex-col lg:flex-row items-center lg:items-start pt-4">
-                <!-- Empty Tomb Logo at the top left -->
-                <div class="mb-4 lg:mb-0 lg:mr-8 flex-shrink-0">
-                    <a href="#home">
-                        <img src="empty-tomb.png" alt="The Heirloom Store Logo" class="header-logo" id="main-logo">
+            <!-- Central Column: Branding & Buttons stacked -->
+            <div class="flex-grow flex flex-col items-center justify-center px-4">
+                
+                <!-- Branding: Dark Brown text, large size -->
+                <div class="pt-2">
+                    <h1 class="header-title text-4xl md:text-[4rem] lg:text-[5.5rem] font-bold">
+                        The Heirloom Store
+                    </h1>
+                </div>
+
+                <!-- Navigation Row: Centered at the bottom with Pink buttons -->
+                <div class="hidden md:flex flex-row flex-nowrap justify-center gap-2 items-center pb-2">
+                    <a href="#home" class="btn-3d">Home</a>
+                    <a href="#mansion" class="btn-3d">The Mansion</a>
+                    <a href="#about" class="btn-3d">About Us</a>
+                    <a href="#contact" class="btn-3d">Contact</a>
+                    
+                    <div class="w-px h-5 bg-gray-300 mx-1"></div>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d">
+                        Vendor App
+                    </a>
+                    <a href="https://shop.theheirloomstore.com" class="btn-3d">
+                        Shop Online
                     </a>
                 </div>
 
-                <!-- Title and Navigation Group -->
-                <div class="flex-grow flex flex-col items-center lg:items-center justify-center pt-4 lg:pt-10">
-                    <!-- Title Above Buttons, Much Larger and in Logo Font -->
-                    <h1 class="font-logo-style text-6xl md:text-8xl lg:text-9xl mb-6 tracking-wide text-center">
-                        The Heirloom Store
-                    </h1>
-
-                    <!-- Navigation Buttons Row -->
-                    <div class="hidden md:flex flex-wrap justify-center gap-4 items-center">
-                        <a href="#mansion" class="btn-3d">The Mansion</a>
-                        <a href="#about" class="btn-3d">About Us</a>
-                        <a href="#contact" class="btn-3d">Contact</a>
-                        
-                        <div class="w-px h-8 bg-gray-300 mx-2"></div>
-
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d">
-                            Vendor App
-                        </a>
-                        <a href="https://shop.theheirloomstore.com" class="btn-3d">
-                            Shop Online
-                        </a>
-                    </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden pb-2">
+                    <button id="mobile-menu-button" class="p-2 rounded-full bg-white/50 shadow-sm border border-emerald-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    </button>
                 </div>
+            </div>
 
-                <button id="mobile-menu-button" class="md:hidden absolute top-6 right-6 p-2 rounded-md bg-white/50 shadow-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
-                </button>
+            <!-- Far Right Image: Centered vertically in its column -->
+            <div class="flex-shrink-0 flex items-center justify-center">
+                <img src="cross.png" alt="Cross" class="header-logo-full" onerror="this.src='https://img.icons8.com/ios-filled/200/plus.png'">
             </div>
         </div>
         
+        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 bg-parchment/95 shadow-lg relative z-50">
+             <a href="#home" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200 text-center">Home</a>
              <a href="#mansion" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200 text-center">The Mansion</a>
              <a href="#about" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200 text-center">About Us</a>
              <a href="#contact" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200 text-center mb-4">Contact</a>
@@ -287,7 +291,7 @@
                     </h1>
                     <p class="text-xl lg:text-4xl mt-6 font-medium tracking-wide" style="text-shadow: 0 2px 10px rgba(0,0,0,0.7);">New Life at the Maple Street Mansion</p>
                 </div>
-                <div class="w-full max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-700">
+                <div class="w-full max-w-2xl mx-auto transform hover:scale-[1.01] transition-transform duration-700">
                     <div class="video-container rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden border-8 border-white/10">
                         <iframe src="https://www.youtube.com/embed/kGkOjFng0Eg?autoplay=1&mute=1&loop=1&playlist=kGkOjFng0Eg&controls=0&showinfo=0&autohide=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
@@ -312,7 +316,6 @@
             <div class="pb-24">
                 <div class="wide-container">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <!-- History Card -->
                         <div class="text-center group content-section-translucent p-8 rounded-2xl shadow-sm border border-emerald-100/50">
                             <div class="overflow-hidden rounded-xl shadow-lg mb-6 border-b-4 border-accent-spring aspect-video">
                                 <img src="401-Maple-St-Carrollton-GA-Primary-Photo-1-HighDefinition.jpg" alt="Historic mansion photo" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
@@ -321,7 +324,6 @@
                             <p class="mb-6 text-lg leading-relaxed">A vibrant landmark in Carrollton, captivating residents and visitors alike since 1890.</p>
                             <a href="#mansion" class="btn-3d !shadow-none hover:!shadow-lg">Learn More</a>
                         </div>
-                        <!-- Founder Card -->
                         <div class="text-center group content-section-translucent p-8 rounded-2xl shadow-sm border border-emerald-100/50">
                             <div class="overflow-hidden rounded-xl shadow-lg mb-6 border-b-4 border-accent-spring aspect-video">
                                 <img src="f7250c4d-801e-4b1d-8ad4-799342ce7af1.jpg" alt="Portrait of Malina Falkner" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
@@ -330,8 +332,7 @@
                             <p class="mb-6 text-lg leading-relaxed">With a lifelong passion for handcrafted artistry, Malina Falkner founded The Heirloom Store.</p>
                             <a href="#about" class="btn-3d !shadow-none hover:!shadow-lg">Read Her Story</a>
                         </div>
-                        <!-- Philosophy Card -->
-                        <div class="text-center group group content-section-translucent p-8 rounded-2xl shadow-sm border border-emerald-100/50">
+                        <div class="text-center group content-section-translucent p-8 rounded-2xl shadow-sm border border-emerald-100/50">
                             <div class="overflow-hidden rounded-xl shadow-lg mb-6 border-b-4 border-accent-spring aspect-video">
                                 <img src="464002993_8689113041154802_5960375556208885290_n.jpg" alt="Attic window light" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                             </div>
@@ -389,7 +390,7 @@
             <div class="wide-container text-center">
                 <h2 class="text-5xl font-bold mb-12">Visit Us This Easter</h2>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
-                    <div class="group cursor-pointer">
+                    <div class="group cursor-pointer text-center">
                         <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-spring transition-colors">
                             <svg class="w-10 h-10 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
@@ -397,7 +398,7 @@
                         <p class="text-xl">401 Maple Street<br>Carrollton, GA 30117</p>
                     </div>
                     <div class="hidden md:block w-px h-32 bg-emerald-200"></div>
-                    <div class="group cursor-pointer">
+                    <div class="group cursor-pointer text-center">
                         <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-spring transition-colors">
                             <svg class="w-10 h-10 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                         </div>
@@ -405,7 +406,7 @@
                         <p class="text-xl">(678) 390-0336</p>
                     </div>
                     <div class="hidden md:block w-px h-32 bg-emerald-200"></div>
-                    <div class="group cursor-pointer">
+                    <div class="group cursor-pointer text-center">
                         <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-spring transition-colors">
                             <svg class="w-10 h-10 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         </div>
@@ -420,9 +421,9 @@
     <footer class="bg-emerald-950 text-white pt-20 pb-12">
         <div class="wide-container text-center">
             <div class="flex justify-center mb-10">
-                 <img src="empty-tomb.png" alt="Footer Logo" class="h-32 w-32 rounded-full border-4 border-white/20 hover:scale-110 transition-transform">
+                 <img src="heirloom-header.png" alt="Footer Logo" class="h-32 w-32 rounded-full border-4 border-white/20 hover:scale-110 transition-transform object-cover">
             </div>
-            <h3 class="font-logo-style text-5xl mb-6 text-emerald-100">The Heirloom Store</h3>
+            <h3 class="font-holiday text-5xl mb-6 text-emerald-100">The Heirloom Store</h3>
             <div class="w-32 h-1 bg-accent-gold mx-auto mb-8"></div>
             <p class="text-emerald-200/80 mb-2 text-lg">&copy; 2025 The Heirloom Store LLC. All Rights Reserved.</p>
             <p class="text-sm uppercase tracking-[0.3em] text-emerald-400">Timeless Treasures • Handcrafted Legacy</p>
@@ -431,6 +432,7 @@
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Easter Egg animation
             const container = document.body;
             const eggColors = ['#F8CACA', '#CAEBF8', '#D3CAF8', '#F8F1CA', '#CFF8CA']; 
             const eggSymbols = ['🥚', '🐣', '🌸'];
