@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Heirloom Store - Easter Celebration</title>
+    <title>The Heirloom Store - Spring Splendor</title>
     
-    <!-- Updated favicon to 1.png -->
+    <!-- Favicon -->
     <link rel="icon" href="1.png" type="image/png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,18 +18,18 @@
         :root {
             --bg-parchment: #FDFBF6; 
             --text-charcoal: #333333; 
-            --accent-spring: #98D7C2; 
-            --accent-pink: #F48FB1; 
-            --accent-gold: #F5D76E;  
+            --accent-spring: #A8E6CF; /* Soft Mint Green */
+            --accent-floral: #FFD1DC; /* Soft Petal Pink */
+            --accent-sky: #DCEDC1;    /* Light Sage */
+            --accent-gold: #FFD700;   /* Sunshine Yellow */
             --accent-bright-gold: #D4AF37; 
-            --accent-rose-gold: #FFB7C5; 
-            --bright-rose-gold: #E5A1A9;
-            --accent-forest: #228B22; 
-            --btn-shadow: #C2185B; 
-            --header-brown: #4A3728; 
+            --btn-pink: #F48FB1;
+            --btn-shadow: #AD1457; 
+            --header-brown: #5D4037; 
         }
         body {
-            background-image: url('easter-mansion.png'); 
+            /* Updated background image as requested */
+            background-image: url('mansion-background.png'); 
             background-attachment: fixed;
             background-position: center center;
             background-repeat: no-repeat;
@@ -48,13 +48,13 @@
             font-weight: 400; 
             letter-spacing: 2px;
             line-height: 1.2;
-            text-shadow: 0 4px 6px rgba(0,0,0,0.5); 
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3); 
         }
 
         .header-title {
             font-family: 'Great Vibes', cursive;
             color: var(--header-brown); 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
             line-height: 1.2;
             white-space: nowrap;
             padding: 0.5rem 0;
@@ -66,16 +66,17 @@
         
         .content-section-translucent {
             position: relative; 
-            background-color: rgba(253, 251, 246, 0.94); 
-            backdrop-filter: blur(4px);
+            background-color: rgba(253, 251, 246, 0.96); 
+            backdrop-filter: blur(8px);
             overflow: hidden; 
         }
 
+        /* Subtle floral pattern overlay */
         .content-section-translucent::after {
             content: "";
-            background-image: url('https://img.icons8.com/color/48/easter-egg.png');
-            background-size: 80px 80px; 
-            opacity: 0.05; 
+            background-image: url('https://img.icons8.com/color/48/cherry-blossoms.png');
+            background-size: 120px 120px; 
+            opacity: 0.03; 
             top: 0;
             left: 0;
             bottom: 0;
@@ -102,16 +103,16 @@
         }
 
         .btn-3d {
-            background-color: var(--accent-pink);
+            background-color: var(--btn-pink);
             color: #ffffff;
             font-weight: 700;
-            padding: 0.35rem 0.75rem; 
+            padding: 0.35rem 0.85rem; 
             border-radius: 9999px; 
             border: none;
-            transition: all 0.1s ease;
-            box-shadow: 0px 3px 0px var(--btn-shadow); 
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0px 4px 0px var(--btn-shadow); 
             text-transform: uppercase;
-            font-size: 0.65rem; 
+            font-size: 0.7rem; 
             letter-spacing: 0.05em;
             display: inline-block;
             text-decoration: none;
@@ -120,51 +121,55 @@
         }
         
         .btn-3d:hover {
-            filter: brightness(110%);
-            transform: translateY(-1px);
-            box-shadow: 0px 4px 0px var(--btn-shadow);
+            filter: brightness(105%);
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 0px var(--btn-shadow);
         }
 
         .btn-3d:active {
-            transform: translateY(3px); 
-            box-shadow: 0px 0px 0px var(--btn-shadow); 
+            transform: translateY(2px); 
+            box-shadow: 0px 1px 0px var(--btn-shadow); 
         }
 
-        .falling-egg {
+        /* Generic falling element class for bees and flowers */
+        .falling-element {
             position: fixed;
-            top: -40px; 
-            font-size: 1.8em;
+            top: -50px; 
             z-index: 9999;
             pointer-events: none;
-            animation-name: fall-rotate;
-            animation-timing-function: linear;
+            animation-name: fall-sway;
+            animation-timing-function: ease-in-out;
             animation-iteration-count: infinite;
         }
 
-        @keyframes fall-rotate {
-            to { transform: translateY(115vh) rotate(540deg); } 
+        @keyframes fall-sway {
+            0% { transform: translateY(-5vh) translateX(0) rotate(0deg); }
+            25% { transform: translateY(25vh) translateX(20px) rotate(20deg); }
+            50% { transform: translateY(50vh) translateX(-20px) rotate(-20deg); }
+            75% { transform: translateY(75vh) translateX(20px) rotate(10deg); }
+            100% { transform: translateY(110vh) translateX(0) rotate(360deg); } 
         }
 
-        .bunny-container {
+        .side-image-container {
             position: fixed;
-            bottom: 40px; 
-            right: 40px;
+            bottom: 30px; 
+            right: 30px;
             z-index: 200;
-            width: 180px; 
+            width: 160px; 
             pointer-events: none;
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
         }
 
-        .bunny-img {
+        .side-img {
             width: 100%;
             height: auto;
             display: block;
-            animation: bunny-hop 3.5s ease-in-out infinite;
+            animation: float-gentle 4s ease-in-out infinite;
         }
 
-        @keyframes bunny-hop {
+        @keyframes float-gentle {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(8deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
         }
 
         .wide-container {
@@ -176,7 +181,8 @@
             padding-right: 1.5rem;
         }
 
-        .header-logo-full {
+        /* Generic Banner Images in Header */
+        .header-banner-img {
             height: auto;
             width: 100px;
             aspect-ratio: 1 / 1;
@@ -184,55 +190,61 @@
             border-radius: 9999px;
             display: block;
             border: 4px solid white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         @media (min-width: 1024px) {
-            .header-logo-full {
-                width: 180px;
+            .header-banner-img {
+                width: 160px;
             }
         }
 
-        .header-logo-full:hover {
-            transform: scale(1.05);
+        .header-banner-img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Spring Gradient */
+        .spring-grad {
+            background: linear-gradient(135deg, #A8E6CF 0%, #DCEDC1 100%);
         }
 
     </style>
 </head>
 <body class="text-charcoal">
 
-    <div class="bunny-container" id="easter-bunny">
-        <img src="bunny.png" class="bunny-img" alt="Easter Bunny" title="Happy Easter!">
+    <!-- Floating Side Image -->
+    <div class="side-image-container" id="spring-side-image">
+        <img src="sideimage.png" class="side-img" alt="Spring Mascot" title="Welcome Spring!" onerror="this.src='https://img.icons8.com/color/200/bee.png'">
     </div>
 
     <!-- Unified Header -->
-    <header class="bg-parchment/90 backdrop-blur-lg shadow-md sticky top-0 z-[100] border-b border-rose-100">
+    <header class="bg-parchment/95 backdrop-blur-md shadow-sm sticky top-0 z-[100] border-b border-emerald-50">
         <div class="flex flex-row items-stretch px-4 py-2">
             
-            <!-- Far Left Image: Empty Tomb -->
+            <!-- Left Banner Image -->
             <div class="flex-shrink-0 flex items-center justify-center">
-                <img src="empty-tomb.png" alt="Empty Tomb" class="header-logo-full" onerror="this.src='https://img.icons8.com/ios-filled/200/mountain.png'">
+                <img src="left-banner.png" alt="Spring Theme Left" class="header-banner-img" onerror="this.src='https://img.icons8.com/color/200/flower-bouquet.png'">
             </div>
 
-            <!-- Central Column: Branding, Buttons, & Hours -->
+            <!-- Central Column -->
             <div class="flex-grow flex flex-col items-center justify-center px-4">
                 
-                <!-- Branding: Dark Brown text -->
+                <!-- Branding -->
                 <div class="pt-2">
-                    <h1 class="header-title text-4xl md:text-[4rem] lg:text-[5.5rem] font-bold">
+                    <h1 class="header-title text-4xl md:text-[4.5rem] lg:text-[6rem] font-bold">
                         The Heirloom Store
                     </h1>
                 </div>
 
-                <!-- Navigation Row: Pink Buttons -->
-                <div class="hidden md:flex flex-row flex-nowrap justify-center gap-2 items-center pb-2">
+                <!-- Navigation Row -->
+                <nav class="hidden md:flex flex-row flex-nowrap justify-center gap-3 items-center pb-2">
                     <a href="#home" class="btn-3d">Home</a>
                     <a href="#mansion" class="btn-3d">The Mansion</a>
-                    <a href="#about" class="btn-3d">About Us</a>
+                    <a href="#about" class="btn-3d">About</a>
                     <a href="#contact" class="btn-3d">Contact</a>
                     
-                    <div class="w-px h-5 bg-gray-300 mx-1"></div>
+                    <div class="w-px h-5 bg-emerald-200 mx-1"></div>
 
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d">
                         Vendor App
@@ -240,10 +252,10 @@
                     <a href="https://shop.theheirloomstore.com" class="btn-3d">
                         Shop Online
                     </a>
-                </div>
+                </nav>
 
-                <!-- Store Hours Row -->
-                <div class="hidden md:flex flex-wrap justify-center gap-x-4 text-[0.6rem] lg:text-[0.7rem] font-bold text-[#634a36] uppercase tracking-widest opacity-80 pb-2">
+                <!-- Store Hours -->
+                <div class="hidden md:flex flex-wrap justify-center gap-x-6 text-[0.65rem] lg:text-[0.75rem] font-bold text-[#6d4c41] uppercase tracking-widest opacity-70 pb-2">
                     <span>Mon–Wed: 7am–4pm</span>
                     <span>Thu–Fri: 7am–7pm</span>
                     <span>Sat: 8am–4pm</span>
@@ -252,24 +264,24 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden pb-2">
-                    <button id="mobile-menu-button" class="p-2 rounded-full bg-white/50 shadow-sm border border-emerald-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    <button id="mobile-menu-button" class="p-2 rounded-full bg-white/60 shadow-sm border border-emerald-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
                     </button>
                 </div>
             </div>
 
-            <!-- Far Right Image: Cross -->
+            <!-- Right Banner Image -->
             <div class="flex-shrink-0 flex items-center justify-center">
-                <img src="cross.png" alt="Cross" class="header-logo-full" onerror="this.src='https://img.icons8.com/ios-filled/200/plus.png'">
+                <img src="right-banner.png" alt="Spring Theme Right" class="header-banner-img" onerror="this.src='https://img.icons8.com/color/200/sun.png'">
             </div>
         </div>
         
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 bg-parchment/95 shadow-lg relative z-50">
-             <a href="#home" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200 text-center">Home</a>
-             <a href="#mansion" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200 text-center">The Mansion</a>
-             <a href="#about" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200 text-center">About Us</a>
-             <a href="#contact" class="block py-3 hover:text-emerald-700 font-medium border-b border-gray-200 text-center mb-4">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-8 pt-4 bg-parchment shadow-xl relative z-50">
+             <a href="#home" class="block py-4 hover:bg-emerald-50 px-4 rounded-lg transition-colors font-medium border-b border-gray-100 text-center">Home</a>
+             <a href="#mansion" class="block py-4 hover:bg-emerald-50 px-4 rounded-lg transition-colors font-medium border-b border-gray-100 text-center">The Mansion</a>
+             <a href="#about" class="block py-4 hover:bg-emerald-50 px-4 rounded-lg transition-colors font-medium border-b border-gray-100 text-center">About Us</a>
+             <a href="#contact" class="block py-4 hover:bg-emerald-50 px-4 rounded-lg transition-colors font-medium border-b border-gray-100 text-center mb-6">Contact</a>
              
              <div class="flex flex-col space-y-4 items-center">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsY0clwKVIf2554DXMWbTTzOPIAaGYkaJIsXpShjndjuBTw/viewform?usp=sharing&ouid=103794233829858310133" target="_blank" rel="noopener noreferrer" class="btn-3d w-full text-center">
@@ -279,8 +291,7 @@
                     Shop Online
                 </a>
              </div>
-             <!-- Mobile Hours -->
-             <div class="mt-6 text-center text-[0.7rem] font-bold text-[#634a36] uppercase tracking-tighter">
+             <div class="mt-8 text-center text-[0.7rem] font-bold text-[#6d4c41] uppercase tracking-tighter opacity-80">
                 <p>Mon-Wed: 7am-4pm | Thu-Fri: 7am-7pm</p>
                 <p>Sat: 8am-4pm | Sun: Closed</p>
              </div>
@@ -288,186 +299,210 @@
     </header>
 
     <main>
-        <section id="home" class="relative h-screen min-h-[900px] flex items-center justify-center">
-            <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
-            <div class="relative z-20 wide-container text-center">
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen min-h-[850px] flex items-center justify-center">
+            <div class="absolute inset-0 bg-emerald-950/20 z-10"></div>
+            <div class="relative z-20 wide-container text-center px-4">
                 <div class="text-white mb-8">
-                    <div class="inline-block bg-white/10 backdrop-blur-md px-10 py-4 rounded-full mb-8 border border-white/30 shadow-2xl">
-                        <span class="text-2xl md:text-4xl font-bold text-accent-gold" style="font-family: 'Playfair Display', serif; text-shadow: 0 3px 6px rgba(0,0,0,0.8);">
-                            Hallelujah, <span style="color: white">Christ is Risen!</span>
+                    <div class="inline-block bg-white/20 backdrop-blur-md px-10 py-4 rounded-full mb-8 border border-white/40 shadow-2xl">
+                        <span class="text-2xl md:text-3xl font-bold text-accent-gold" style="font-family: 'Playfair Display', serif; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                            New Beginnings, <span style="color: white">Spring at the Mansion</span>
                         </span>
                     </div>
 
-                    <h1 class="font-holiday text-6xl md:text-8xl lg:text-9xl mb-6">
-                        A Glorious Easter Celebration
+                    <h1 class="font-holiday text-7xl md:text-9xl mb-6">
+                        Springtime Splendor
                     </h1>
-                    <p class="text-xl lg:text-4xl mt-6 font-medium tracking-wide" style="text-shadow: 0 2px 10px rgba(0,0,0,0.7);">New Life at the Maple Street Mansion</p>
+                    <p class="text-xl lg:text-4xl mt-6 font-medium tracking-wide drop-shadow-md">Celebrating Renewal at the Maple Street Mansion</p>
                 </div>
-                <div class="w-full max-w-2xl mx-auto transform hover:scale-[1.01] transition-transform duration-700">
-                    <div class="video-container rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden border-8 border-white/10">
+                <div class="w-full max-w-2xl mx-auto transform hover:scale-[1.02] transition-transform duration-700">
+                    <div class="video-container rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] overflow-hidden border-8 border-white/20">
                         <iframe src="https://www.youtube.com/embed/kGkOjFng0Eg?autoplay=1&mute=1&loop=1&playlist=kGkOjFng0Eg&controls=0&showinfo=0&autohide=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="h-40"></div>
+        <div class="h-32"></div>
 
+        <!-- Introduction Section -->
         <section class="content-section">
             <div class="py-20 md:py-32">
-                <div class="wide-container text-center max-w-5xl">
-                    <p class="text-2xl md:text-4xl leading-relaxed italic text-emerald-900 font-serif">
-                        "Behold, I make all things new."
+                <div class="wide-container text-center max-w-4xl">
+                    <p class="text-3xl md:text-4xl leading-relaxed italic text-emerald-900 font-serif">
+                        "The earth laughs in flowers."
                     </p>
-                    <div class="w-24 h-1 bg-accent-spring mx-auto my-8"></div>
-                    <p class="mt-6 text-xl md:text-2xl leading-relaxed font-light">
-                        Step into a season of resurrection and history. Discover a curated collection of handcrafted, vintage, and custom-made treasures from talented local artisans in our historic landmark.
+                    <div class="w-32 h-1 bg-accent-spring mx-auto my-10"></div>
+                    <p class="mt-6 text-xl md:text-2xl leading-relaxed font-light text-gray-600">
+                        Experience the vibrant renewal of spring. Wander through our historic rooms and discover handcrafted treasures, blooming gifts, and vintage finds from our community's finest artisans.
                     </p>
                 </div>
             </div>
-            <div class="pb-24">
+            
+            <!-- Featured Boxes -->
+            <div class="pb-32">
                 <div class="wide-container">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div class="text-center group content-section-translucent p-8 rounded-2xl shadow-sm border border-emerald-100/50">
-                            <div class="overflow-hidden rounded-xl shadow-lg mb-6 border-b-4 border-accent-spring aspect-video">
-                                <img src="401-Maple-St-Carrollton-GA-Primary-Photo-1-HighDefinition.jpg" alt="Historic mansion photo" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div class="text-center group content-section-translucent p-10 rounded-3xl shadow-sm border border-emerald-100/30">
+                            <div class="overflow-hidden rounded-2xl shadow-lg mb-8 border-b-8 border-accent-spring aspect-video">
+                                <img src="401-Maple-St-Carrollton-GA-Primary-Photo-1-HighDefinition.jpg" alt="Mansion Exterior" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
                             </div>
-                            <h3 class="text-3xl font-bold mb-4">The History</h3>
-                            <p class="mb-6 text-lg leading-relaxed">A vibrant landmark in Carrollton, captivating residents and visitors alike since 1890.</p>
-                            <a href="#mansion" class="btn-3d !shadow-none hover:!shadow-lg">Learn More</a>
+                            <h3 class="text-3xl font-bold mb-4">Our History</h3>
+                            <p class="mb-8 text-lg leading-relaxed text-gray-600">A vibrant landmark in Carrollton, captivating hearts with its historic architecture since 1890.</p>
+                            <a href="#mansion" class="btn-3d">Explore History</a>
                         </div>
-                        <div class="text-center group content-section-translucent p-8 rounded-2xl shadow-sm border border-emerald-100/50">
-                            <div class="overflow-hidden rounded-xl shadow-lg mb-6 border-b-4 border-accent-spring aspect-video">
-                                <img src="f7250c4d-801e-4b1d-8ad4-799342ce7af1.jpg" alt="Portrait of Malina Falkner" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="text-center group content-section-translucent p-10 rounded-3xl shadow-sm border border-emerald-100/30">
+                            <div class="overflow-hidden rounded-2xl shadow-lg mb-8 border-b-8 border-accent-floral aspect-video">
+                                <img src="f7250c4d-801e-4b1d-8ad4-799342ce7af1.jpg" alt="The Founder" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
                             </div>
-                            <h3 class="text-3xl font-bold mb-4">Meet the Founder</h3>
-                            <p class="mb-6 text-lg leading-relaxed">With a lifelong passion for handcrafted artistry, Malina Falkner founded The Heirloom Store.</p>
-                            <a href="#about" class="btn-3d !shadow-none hover:!shadow-lg">Read Her Story</a>
+                            <h3 class="text-3xl font-bold mb-4">The Artisan Voice</h3>
+                            <p class="mb-8 text-lg leading-relaxed text-gray-600">Malina Falkner created a space where local craftsmanship meets timeless beauty and memory.</p>
+                            <a href="#about" class="btn-3d">The Journey</a>
                         </div>
-                        <div class="text-center group content-section-translucent p-8 rounded-2xl shadow-sm border border-emerald-100/50">
-                            <div class="overflow-hidden rounded-xl shadow-lg mb-6 border-b-4 border-accent-spring aspect-video">
-                                <img src="464002993_8689113041154802_5960375556208885290_n.jpg" alt="Attic window light" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="text-center group content-section-translucent p-10 rounded-3xl shadow-sm border border-emerald-100/30">
+                            <div class="overflow-hidden rounded-2xl shadow-lg mb-8 border-b-8 border-accent-sky aspect-video">
+                                <img src="464002993_8689113041154802_5960375556208885290_n.jpg" alt="Artistic Details" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
                             </div>
-                            <h3 class="text-3xl font-bold mb-4">Our Philosophy</h3>
-                            <p class="mb-6 text-lg leading-relaxed">Every customer leaves with more than an item—they leave with a piece of a story.</p>
-                            <a href="#about" class="btn-3d !shadow-none hover:!shadow-lg">Discover More</a>
+                            <h3 class="text-3xl font-bold mb-4">A Gift for Life</h3>
+                            <p class="mb-8 text-lg leading-relaxed text-gray-600">Leave with more than a purchase—take home a fragment of a story and a touch of spring.</p>
+                            <a href="#about" class="btn-3d">Our Philosophy</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="h-40"></div>
+        <div class="h-32"></div>
         
-        <section id="mansion" class="py-24 content-section-translucent">
+        <!-- Mansion History Section -->
+        <section id="mansion" class="py-32 content-section-translucent">
             <div class="wide-container">
-                <h2 class="text-5xl font-bold text-center mb-16">The Maple Street Mansion</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="prose prose-xl max-w-none text-charcoal leading-loose">
-                        <p>The Maple Street Mansion, a vibrant landmark in Carrollton, Georgia, has captivated residents and visitors alike since its construction in 1890. Built by L.C. Mandeville, a prominent figure in the local textile industry, the mansion holds a unique place in the city’s history.</p>
-                        <p>In the 1960s, it was divided into boutiques and student housing, even earning the nickname “Hippie Joint” from a former owner, Bob Uglum. In 1984, the Uglum family purchased the property, ushering in a period of expansion and prosperity.</p>
-                        <p>Now, the Maple Street Mansion is embarking on a new chapter, embracing its role as a showcase for local artisans and creators. Saved from demolition in 2014, it continues to thrive as a testament to love, family, and community.</p>
+                <h2 class="text-5xl md:text-6xl font-bold text-center mb-20 text-emerald-900">The Maple Street Mansion</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="prose prose-xl max-w-none text-charcoal leading-loose font-light">
+                        <p>The Maple Street Mansion, a vibrant landmark in Carrollton, Georgia, has captivated residents and visitors alike since its construction in 1890. Built by L.C. Mandeville, a prominent figure in the local textile industry, the mansion holds a unique place in the city’s heart.</p>
+                        <p>In the 1960s, it was divided into boutiques and housing, even earning the spirited nickname “Hippie Joint.” In 1984, the Uglum family purchased the property, ushering in a long period of growth.</p>
+                        <p>Now, the Mansion embraces a new spring chapter as a showcase for local creators. Saved from demolition in 2014, it continues to thrive as a testament to love, family, and our local community.</p>
                     </div>
-                    <div class="grid grid-cols-2 gap-6">
-                        <img src="463253784_8654145337984906_1094212845355390835_n.jpg" alt="Mansion detail" class="rounded-2xl shadow-xl aspect-square object-cover border-4 border-white">
-                        <img src="463552307_8654258261306947_1621956945816906871_n.jpg" alt="Vintage exterior" class="rounded-2xl shadow-xl aspect-square object-cover border-4 border-white">
-                        <img src="463992504_8701738569892249_2507384441854007386_n.jpg" alt="Interior view" class="rounded-2xl shadow-xl aspect-square object-cover border-4 border-white">
-                        <img src="463460067_8659471954118911_5530255364321993702_n.jpg" alt="Mansion porch" class="rounded-2xl shadow-xl aspect-square object-cover border-4 border-white">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="463253784_8654145337984906_1094212845355390835_n.jpg" alt="Detail 1" class="rounded-3xl shadow-xl aspect-square object-cover border-4 border-white hover:scale-105 transition-transform">
+                        <img src="463552307_8654258261306947_1621956945816906871_n.jpg" alt="Detail 2" class="rounded-3xl shadow-xl aspect-square object-cover border-4 border-white hover:scale-105 transition-transform">
+                        <img src="463992504_8701738569892249_2507384441854007386_n.jpg" alt="Detail 3" class="rounded-3xl shadow-xl aspect-square object-cover border-4 border-white hover:scale-105 transition-transform">
+                        <img src="463460067_8659471954118911_5530255364321993702_n.jpg" alt="Detail 4" class="rounded-3xl shadow-xl aspect-square object-cover border-4 border-white hover:scale-105 transition-transform">
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="h-40"></div>
+        <div class="h-32"></div>
 
-        <section id="about" class="py-24 content-section">
+        <!-- About/Legacy Section -->
+        <section id="about" class="py-32 content-section">
             <div class="wide-container max-w-7xl">
-                 <h2 class="text-5xl font-bold text-center mb-16">Our Story, Our Legacy</h2>
-                 <div class="flex flex-col lg:flex-row items-stretch gap-0 bg-parchment rounded-3xl shadow-2xl overflow-hidden content-section-translucent">
+                 <h2 class="text-5xl md:text-6xl font-bold text-center mb-20">Our Legacy</h2>
+                 <div class="flex flex-col lg:flex-row items-stretch gap-0 bg-parchment rounded-[3rem] shadow-2xl overflow-hidden content-section-translucent">
                     <div class="lg:w-1/2 p-12 md:p-20 prose prose-xl max-w-none text-charcoal flex flex-col justify-center">
-                        <p class="mb-8">Our story began in 2013, born from a place of grief and a place of healing. After the heartbreaking loss of my mother, I found solace in creating—taking ordinary, forgotten items and transforming them into something special.</p>
-                        <p>Tragedy struck again with the loss of my son, but instead of breaking me, it fueled my determination. I realized that life is about leaving a legacy, something that speaks of resilience, love, and connection. Each piece I create holds that sentiment, infused with memory and purpose.</p>
+                        <p class="mb-10 text-emerald-900 font-medium">Our journey began in 2013, rooted in healing and the power of creation.</p>
+                        <p class="mb-8">After loss, I found a path forward through artistry—taking forgotten items and giving them new life. Today, that spirit of resurrection is woven into every corner of the Heirloom Store.</p>
+                        <p>We believe life is about the legacy we leave behind. Each piece we curate speaks of resilience, beauty, and the connections that bind us together across generations.</p>
                     </div>
-                    <div class="lg:w-1/2 grid grid-cols-2">
-                        <img src="858091_10200556907826799_882688512_o.jpg" alt="Legacy Photo 1" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700">
-                        <img src="062-scaled.jpg" alt="Legacy Photo 2" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700">
+                    <div class="lg:w-1/2 grid grid-cols-2 bg-emerald-100">
+                        <img src="858091_10200556907826799_882688512_o.jpg" alt="Heritage 1" class="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-1000">
+                        <img src="062-scaled.jpg" alt="Heritage 2" class="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-1000">
                     </div>
                  </div>
             </div>
         </section>
 
-        <div class="h-40"></div>
+        <div class="h-32"></div>
 
-        <section id="contact" class="py-24 content-section-translucent">
+        <!-- Contact Section -->
+        <section id="contact" class="py-32 content-section-translucent">
             <div class="wide-container text-center">
-                <h2 class="text-5xl font-bold mb-12">Visit Us This Easter</h2>
-                <div class="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
-                    <div class="group cursor-pointer text-center">
-                        <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-spring transition-colors">
-                            <svg class="w-10 h-10 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <h2 class="text-5xl md:text-6xl font-bold mb-16 text-emerald-900">Visit Us This Spring</h2>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-32">
+                    <div class="group cursor-pointer">
+                        <div class="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent-spring transition-all group-hover:scale-110">
+                            <svg class="w-12 h-12 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
-                        <h4 class="text-2xl font-bold mb-2">Address</h4>
-                        <p class="text-xl">401 Maple Street<br>Carrollton, GA 30117</p>
+                        <h4 class="text-2xl font-bold mb-2">Location</h4>
+                        <p class="text-xl text-gray-600 font-light">401 Maple Street<br>Carrollton, GA 30117</p>
                     </div>
-                    <div class="hidden md:block w-px h-32 bg-emerald-200"></div>
-                    <div class="group cursor-pointer text-center">
-                        <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-spring transition-colors">
-                            <svg class="w-10 h-10 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    <div class="group cursor-pointer">
+                        <div class="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent-spring transition-all group-hover:scale-110">
+                            <svg class="w-12 h-12 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                         </div>
-                        <h4 class="text-2xl font-bold mb-2">Phone</h4>
-                        <p class="text-xl">(678) 390-0336</p>
+                        <h4 class="text-2xl font-bold mb-2">Call</h4>
+                        <p class="text-xl text-gray-600 font-light">(678) 390-0336</p>
                     </div>
-                    <div class="hidden md:block w-px h-32 bg-emerald-200"></div>
-                    <div class="group cursor-pointer text-center">
-                        <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-spring transition-colors">
-                            <svg class="w-10 h-10 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <div class="group cursor-pointer">
+                        <div class="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent-spring transition-all group-hover:scale-110">
+                            <svg class="w-12 h-12 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         </div>
                         <h4 class="text-2xl font-bold mb-2">Email</h4>
-                        <p class="text-xl">support@theheirloomstore.com</p>
+                        <p class="text-xl text-gray-600 font-light">support@theheirloomstore.com</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-emerald-950 text-white pt-20 pb-12">
+    <!-- Footer -->
+    <footer class="bg-emerald-950 text-white pt-24 pb-12">
         <div class="wide-container text-center">
-            <div class="flex justify-center mb-10">
-                 <img src="1.png" alt="Footer Logo" class="h-32 w-32 rounded-full border-4 border-white/20 hover:scale-110 transition-transform object-cover">
+            <div class="flex justify-center mb-12">
+                 <img src="1.png" alt="Footer Logo" class="h-32 w-32 rounded-full border-4 border-white/10 hover:scale-110 transition-transform object-cover shadow-2xl">
             </div>
-            <h3 class="font-holiday text-5xl mb-6 text-emerald-100">The Heirloom Store</h3>
-            <div class="w-32 h-1 bg-accent-gold mx-auto mb-8"></div>
-            <p class="text-emerald-200/80 mb-2 text-lg">&copy; 2025 The Heirloom Store LLC. All Rights Reserved.</p>
-            <p class="text-sm uppercase tracking-[0.3em] text-emerald-400">Timeless Treasures • Handcrafted Legacy</p>
+            <h3 class="font-holiday text-6xl mb-8 text-emerald-100">The Heirloom Store</h3>
+            <div class="w-40 h-0.5 bg-accent-gold mx-auto mb-10 opacity-50"></div>
+            <p class="text-emerald-200/60 mb-3 text-lg">&copy; 2025 The Heirloom Store LLC. All Rights Reserved.</p>
+            <p class="text-xs uppercase tracking-[0.4em] text-emerald-400 font-bold opacity-70">Timeless Treasures • Handcrafted Legacy</p>
         </div>
     </footer>
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Easter Egg animation
             const container = document.body;
-            const eggColors = ['#F8CACA', '#CAEBF8', '#D3CAF8', '#F8F1CA', '#CFF8CA']; 
-            const eggSymbols = ['🥚', '🐣', '🌸'];
+            // Spring Symbols: Bees, Cherry Blossoms, Flowers, Sun
+            const springSymbols = ['🐝', '🌸', '🌼', '🌻', '🍃', '🦋'];
             
-            function createEgg() {
-                const egg = document.createElement('div');
-                egg.classList.add('falling-egg');
-                egg.innerText = eggSymbols[Math.floor(Math.random() * eggSymbols.length)];
-                egg.style.color = eggColors[Math.floor(Math.random() * eggColors.length)];
-                egg.style.left = Math.random() * 100 + 'vw';
-                egg.style.opacity = Math.random() * 0.7 + 0.3; 
-                egg.style.fontSize = (Math.random() * 30 + 20) + 'px'; 
-                const duration = Math.random() * 6 + 8; 
-                egg.style.animationDuration = duration + 's';
-                container.appendChild(egg);
-                setTimeout(() => egg.remove(), duration * 1000);
+            function createSpringElement() {
+                const el = document.createElement('div');
+                el.classList.add('falling-element');
+                el.innerText = springSymbols[Math.floor(Math.random() * springSymbols.length)];
+                
+                // Randomize position and timing
+                el.style.left = Math.random() * 95 + 'vw';
+                el.style.opacity = Math.random() * 0.5 + 0.3; 
+                el.style.fontSize = (Math.random() * 30 + 15) + 'px'; 
+                
+                const duration = Math.random() * 8 + 10; 
+                el.style.animationDuration = duration + 's';
+                el.style.animationDelay = (Math.random() * 5) + 's';
+                
+                container.appendChild(el);
+                
+                // Cleanup
+                setTimeout(() => el.remove(), (duration + 5) * 1000);
             }
-            setInterval(createEgg, 700); 
+
+            // Create elements at intervals
+            setInterval(createSpringElement, 900); 
+
+            // Initialize a few immediately
+            for(let i=0; i<10; i++) {
+                setTimeout(createSpringElement, i * 300);
+            }
         });
 
+        // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
     </script>
 
 </body>
