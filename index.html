@@ -107,10 +107,19 @@
             text-align: center;
         }
         
+        .btn-3d-gold {
+            background-color: #D4AF37;
+            box-shadow: 0px 3px 0px #8B732A;
+        }
+        
         .btn-3d:hover {
             filter: brightness(105%);
             transform: translateY(-1px);
             box-shadow: 0px 5px 0px var(--btn-shadow);
+        }
+        
+        .btn-3d-gold:hover {
+            box-shadow: 0px 5px 0px #8B732A;
         }
 
         .btn-3d:active {
@@ -189,11 +198,13 @@
                     <a href="#celebration" class="btn-3d">Event</a>
                     <a href="#history" class="btn-3d">History</a>
                     <a href="#malina" class="btn-3d">Founder</a>
+                    <!-- New Shop Online Button -->
+                    <a href="https://shop.theheirloomstore.com/" target="_blank" class="btn-3d btn-3d-gold">Shop Online</a>
                 </nav>
 
                 <!-- Store Hours & Location Under Buttons -->
                 <div class="info-bar mt-3 hidden md:flex flex-col items-center border-t border-gray-100 pt-2 w-full max-w-lg">
-                    <div class="flex gap-4 mb-1">
+                    <div class="flex gap-4 mb-1 text-xs">
                         <span><strong>Mon–Wed:</strong> 7am–4pm</span>
                         <span><strong>Thu–Fri:</strong> 7am–7pm</span>
                         <span><strong>Sat:</strong> 8am–4pm</span>
@@ -207,8 +218,10 @@
             <img src="heirloom-express-logo.jpg" alt="Heirloom Express Logo" class="header-logo" onerror="this.src='https://img.icons8.com/color/200/coffee.png'">
         </div>
         <!-- Mobile Info Bar -->
-        <div class="md:hidden bg-pink-50 p-2 text-center text-[0.65rem] border-t border-pink-100">
-            Mon-Wed 7-4 | Thu-Fri 7-7 | Sat 8-4 | 401 Maple St, Suite A
+        <div class="md:hidden bg-pink-50 p-2 text-center text-[0.65rem] border-t border-pink-100 flex flex-col gap-1">
+            <span>Mon-Wed 7-4 | Thu-Fri 7-7 | Sat 8-4</span>
+            <span class="font-bold">401 Maple Street, Suite A, Carrollton GA</span>
+            <a href="https://shop.theheirloomstore.com/" target="_blank" class="text-pink-600 underline font-bold">Shop Online</a>
         </div>
     </header>
 
@@ -251,7 +264,10 @@
                         <p class="text-gray-600">Experience our specialty coffee and unique roasts inside a piece of rail history.</p>
                     </div>
                 </div>
-                <a href="https://www.facebook.com/share/1G5iafCJAi/" target="_blank" class="btn-3d px-16 py-5 text-xl">RSVP via Facebook</a>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="https://www.facebook.com/share/1G5iafCJAi/" target="_blank" class="btn-3d px-12 py-5 text-xl">RSVP via Facebook</a>
+                    <a href="https://shop.theheirloomstore.com/" target="_blank" class="btn-3d btn-3d-gold px-12 py-5 text-xl">Browse Shop</a>
+                </div>
             </div>
         </section>
 
@@ -273,7 +289,6 @@
 
                     <div class="relative group">
                         <div class="aspect-[16/9] img-frame rounded-2xl">
-                            <!-- Show original-mansion.jpg as requested -->
                             <img src="original-mansion.jpg" alt="Original Mansion View" onerror="this.src='https://placehold.co/800x450?text=Original+Mansion'">
                         </div>
                         <div class="mt-4">
@@ -298,16 +313,18 @@
                     <div class="grid grid-cols-2 gap-6">
                         <div class="flex flex-col">
                             <div class="aspect-square rounded-2xl img-frame mb-2">
-                                <img src="mansion-1950.jpg" alt="1950s Mansion">
+                                <img src="mansion-1950.jpg" alt="Historic Photo">
                             </div>
-                            <span class="text-xs font-bold text-center uppercase text-gray-500">1950s Detail</span>
+                            <!-- Renamed to Historic Photo -->
+                            <span class="text-xs font-bold text-center uppercase text-gray-500">Historic Photo</span>
                         </div>
                         <div class="flex flex-col">
                             <div class="aspect-square rounded-2xl img-frame mb-2">
                                 <!-- Updated to .png per request -->
-                                <img src="mansion-1960.png" alt="1960s Mansion" onerror="this.src='https://placehold.co/400x400?text=1960s+PNG'">
+                                <img src="mansion-1960.png" alt="Historic Photo" onerror="this.src='https://placehold.co/400x400?text=Historic+Photo'">
                             </div>
-                            <span class="text-xs font-bold text-center uppercase text-gray-500">1960s Era</span>
+                            <!-- Renamed to Historic Photo -->
+                            <span class="text-xs font-bold text-center uppercase text-gray-500">Historic Photo</span>
                         </div>
                         <div class="flex flex-col">
                             <div class="aspect-square rounded-2xl img-frame mb-2">
