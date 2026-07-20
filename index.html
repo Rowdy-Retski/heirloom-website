@@ -138,6 +138,7 @@
                 <nav class="hidden md:flex gap-3 mt-2">
                     <a href="#home" class="btn-3d">Home</a>
                     <a href="#cafe" class="btn-3d">The Express Cafe</a>
+                    <a href="#menu" class="btn-3d">Menu</a>
                     <a href="#history" class="btn-3d">History</a>
                     <a href="#malina" class="btn-3d">Founder</a>
                     <a href="https://shop.theheirloomstore.com/" target="_blank" class="btn-3d btn-3d-gold">Shop Online</a>
@@ -156,6 +157,7 @@
             <nav class="flex flex-col gap-2 px-4 pb-4 text-center">
                 <a href="#home" class="btn-3d py-2">Home</a>
                 <a href="#cafe" class="btn-3d py-2">The Express Cafe</a>
+                <a href="#menu" class="btn-3d py-2">Menu</a>
                 <a href="#history" class="btn-3d py-2">History</a>
                 <a href="#malina" class="btn-3d py-2">Founder</a>
                 <a href="https://shop.theheirloomstore.com/" target="_blank" class="btn-3d btn-3d-gold py-2">Shop Online</a>
@@ -205,6 +207,19 @@
                 <div class="img-frame rounded-3xl">
                     <img src="cafe-spring-special.jpg" alt="Seasonal Drink Specials" class="w-full h-full object-cover" id="cafe-image" loading="lazy" onerror="this.src='https://placehold.co/700x500?text=Seasonal+Specials'">
                 </div>
+            </div>
+        </section>
+
+        <section id="menu" class="glass-section border-l-8" style="border-color: var(--accent);">
+            <h2 class="text-4xl font-bold text-emerald-800 mb-8 italic text-center">Our Menu</h2>
+            <div class="img-frame rounded-3xl overflow-hidden">
+                <iframe
+                    src="menu.html"
+                    title="The Heirloom Express Cafe Menu"
+                    class="w-full"
+                    style="height: 80vh; border: 0; display: block;"
+                    loading="lazy">
+                </iframe>
             </div>
         </section>
 
@@ -347,26 +362,26 @@
     <script>
         const SEASON_CONFIG = {
             // --- Season theme ---
-            backgroundImage: "mansion-background-summer.png", // AI-generated seasonal background photo — upload this file
-            accent: "#FF8A65",                                 // seasonal accent color (warm coral for summer)
-            accentShadow: "#D84315",                           // darker shade of accent, for button edges
-            fallingSymbols: ["☀️", "🍉", "🌻", "🦋", "🍧"],     // emoji that drift down the page
+            backgroundImage: "mansion-background-back-to-school.png", // AI-generated seasonal background photo — upload this file
+            accent: "#3D5A80",                                 // seasonal accent color (school blue)
+            accentShadow: "#1D3557",                           // darker shade of accent, for button edges
+            fallingSymbols: ["🎒", "📚", "✏️", "🍎", "🚌"],     // emoji that drift down the page
 
             hero: {
-                badge: "☀️ Summer is Here ☀️",
-                title: "Summer Celebration",
-                tagline: "Gifts that tell a story, Coffee that cools the soul."
+                badge: "🎒 Back to School 🎒",
+                title: "Back to School",
+                tagline: "Gifts that tell a story, for every age on your list."
             },
 
             cafe: {
                 heading: "The Heirloom Express Cafe",
                 subheading: "Seasonal Sips",
-                description: "Step onto our historic railcar for our new Summer menu!",
-                image: "cafe-summer-special.jpg", // upload this file
+                description: "Step onto our historic railcar for our new Back to School menu!",
+                image: "cafe-back-to-school-special.jpg", // upload this file
                 menu: [
-                    { emoji: "🍉", name: "Watermelon Cooler Refresher", desc: "A crisp, fruity iced drink bursting with watermelon and mint." },
-                    { emoji: "🥥", name: "Coconut Cream Cold Brew", desc: "Smooth cold brew swirled with toasted coconut cream." },
-                    { emoji: "☕", name: "Artisan Lattes", desc: "Classic hot & iced favorites for sunny mornings." }
+                    { emoji: "🍎", name: "Honey Apple Cinnamon Latte", desc: "A cozy latte with honey, apple, and a dash of cinnamon." },
+                    { emoji: "📓", name: "Study Break Cold Brew", desc: "A jolt of smooth cold brew to power through homework." },
+                    { emoji: "☕", name: "Artisan Lattes", desc: "Classic hot & iced favorites for busy mornings." }
                 ],
                 ctaText: "View Full Menu",
                 ctaLink: "https://theheirloomexpresscafe.com"
@@ -374,24 +389,24 @@
 
             apparel: {
                 heading: "From Our Online Shop",
-                subheading: "The Heirloom Branded Clothing",
-                description: "Embrace the season with our new Summer collection. From breezy sundresses to our featured linen sets, our curated apparel blends comfort with the timeless charm of The Heirloom Store — perfect for warm Georgia afternoons and porch-sitting evenings.",
-                image: "online-store-summer.webp", // upload this file
-                imageLink: "https://shop.theheirloomstore.com/collections/all-apparel-and-accessories", // update once you pick a featured summer product
-                ctaText: "Shop Apparel & Accessories",
+                subheading: "Gifts for Every Grade",
+                description: "From sweet keepsakes for little ones starting kindergarten to thoughtful care packages and dorm essentials for college students, our curated Back to School collection has something for everyone heading back to the classroom this fall.",
+                image: "online-store-back-to-school.webp", // upload this file
+                imageLink: "https://shop.theheirloomstore.com/collections/all-apparel-and-accessories", // update once you pick a featured back-to-school product
+                ctaText: "Shop Back to School Gifts",
                 ctaLink: "https://shop.theheirloomstore.com/collections/all-apparel-and-accessories"
             },
 
             // --- One-off weekend/holiday promo, independent of the season above ---
-            // Turned ON for this weekend's Christmas in July event. Flip "enabled" to
-            // false on Monday to remove the banner without touching anything else.
+            // Christmas in July has ended — disabled. Flip "enabled" back to true and
+            // update the fields below whenever the next one-off promo comes up.
             eventBanner: {
-                enabled: true,
-                emoji: "🎄",
-                title: "Christmas in July",
-                message: "Festive treats, holiday finds, and a taste of Christmas — one day only.",
-                dateText: "This Saturday, 11am–6pm",
-                ctaText: "See Details",
+                enabled: false,
+                emoji: "🎒",
+                title: "",
+                message: "",
+                dateText: "",
+                ctaText: "",
                 ctaLink: "#cafe"
             }
         };
