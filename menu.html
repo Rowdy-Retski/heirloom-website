@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heirloom Express Cafe — Menu</title>
+<style>
+  :root{
+    --bg: #e5e4e1;
+    --ink: #241a14;
+    --ink-soft: #3a2f28;
+    --rule: #241a14;
+    --green: #a9d3ae;
+    --green-text: #1c3a22;
+    --tan: #b6763f;
+    --gray-italic: #6b6660;
+  }
+
+  *{box-sizing:border-box;}
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .sans{
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .page{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    padding: 60px 80px 70px 80px;
+    border-bottom: 1px solid #cfcdc8;
+    overflow:hidden;
+  }
+
+  .page:last-child{ border-bottom:none; }
+
+  /* ---------- title page ---------- */
+  .title-page{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    min-height:100vh;
+    position:relative;
+  }
+  .cafe-name{
+    font-size: 72px;
+    font-weight:700;
+    margin: 0 0 40px 0;
+    letter-spacing: 1px;
+  }
+  .cafe-quote{
+    font-style: italic;
+    font-size: 26px;
+    color: var(--ink-soft);
+    margin-bottom: 26px;
+  }
+  .cafe-tag{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: var(--tan);
+  }
+  .title-footer{
+    position:absolute;
+    bottom: 40px;
+    left: 80px;
+    right: 80px;
+    display:flex;
+    justify-content:space-between;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- two column menu layout ---------- */
+  .two-col{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+
+  .menu-heading{
+    font-size: 46px;
+    font-weight: 700;
+    margin: 10px 0 4px 0;
+  }
+  .menu-subheading{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight:700;
+    letter-spacing: 1.5px;
+    margin-bottom: 34px;
+  }
+
+  .item-block{
+    margin-bottom: 34px;
+  }
+  .item-row{
+    display:flex;
+    align-items:center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .item-name{
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .badge{
+    background: var(--green);
+    color: var(--green-text);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    white-space:nowrap;
+  }
+  .item-desc{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    margin: 8px 0 14px 0;
+  }
+  .price-row{
+    display:flex;
+    gap: 46px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .price{
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .price-sub{
+    display:block;
+    font-weight:400;
+    font-size:13px;
+    margin-top:2px;
+  }
+  .dash{
+    font-size:20px;
+    font-weight:700;
+    color: var(--ink-soft);
+  }
+
+  .footer-caption{
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-top: 40px;
+  }
+
+  /* ---------- customize / collections panel ---------- */
+  .panel-title{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin: 10px 0 30px 0;
+  }
+  .panel-section{
+    margin-bottom: 26px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .panel-section h4{
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    margin: 0 0 8px 0;
+  }
+  .panel-section p, .panel-section div.line{
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 2px 0;
+  }
+  .panel-section b{ font-weight:700; }
+
+  .flavor-cols{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px 24px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+  }
+  .flavor-cols div{ margin-bottom: 4px; }
+
+  /* ---------- simple list page (vitamin popular) ---------- */
+  .list-page-title{
+    text-align:center;
+    font-size: 44px;
+    font-weight: 700;
+    margin: 20px 0 50px 0;
+  }
+  .list-cols{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 0 120px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 22px;
+  }
+  .list-cols ul{
+    list-style: disc;
+    padding-left: 22px;
+    margin:0;
+  }
+  .list-cols li{
+    margin-bottom: 20px;
+  }
+  .list-footer{
+    display:flex;
+    justify-content:space-between;
+    max-width:1100px;
+    margin: 40px auto 0 auto;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- take it home page ---------- */
+  .home-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  .home-item{ margin-bottom: 44px; }
+  .home-name{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .home-sub{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight:700;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  .home-desc{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    margin-bottom: 14px;
+  }
+  .home-price-row{
+    display:flex;
+    gap: 40px;
+    align-items:baseline;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .home-price{ font-weight:700; font-size:20px; }
+  .home-price-label{ font-size: 15px; }
+
+  @media (max-width: 900px){
+    .page{ padding: 40px 24px 50px 24px; }
+    .two-col, .home-grid, .list-cols{ grid-template-columns: 1fr; }
+    .cafe-name{ font-size: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 : TITLE ============ -->
+<section class="page title-page">
+  <h1 class="cafe-name">Heirloom Express Cafe</h1>
+  <div class="cafe-quote">"Where Every Sip Tells a Story"</div>
+  <div class="cafe-tag">ALL ABOARD FOR HANDCRAFTED SIPS, ANTIQUES &amp; SWEET TREATS</div>
+  <div class="title-footer">
+    <span>CARROLLTON, GEORGIA</span>
+    <span>EST. 2026</span>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 : COFFEES & ESPRESSO ============ -->
+<section class="page">
+
+  <div class="two-col">
+    <div>
+      <h1 class="menu-heading">Coffees &amp; Espresso</h1>
+      <div class="menu-subheading">EXPERTLY CRAFTED</div>
+
+      <div class="item-block">
+        <div class="item-row">
+          <span class="item-name">Daylight Drip</span>
+          <span class="badge">HOUSE BLEND</span>
+        </div>
+        <div class="item-desc">Classic drip, smooth and balanced</div>
+        <div class="price-row">
+          <span class="price">$3.50</span>
+          <span class="price">$3.75</span>
+          <span class="price">$4.25</span>
+          <span class="price">$4.50</span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-name">Americano Iron Rail</div>
+        <div class="item-desc">Espresso with a clean, balanced finish.</div>
+        <div class="price-row">
+          <span class="price">$4.75</span>
+          <span class="price">$5.00</span>
+          <span class="price">$5.25</span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-name">Caboose Cortado</div>
+        <div class="item-desc">Espresso balanced with silky steamed milk</div>
+        <div class="price-row">
+          <span class="price">$4.50</span>
+          <span class="dash">&mdash;</span>
+          <span class="dash">&mdash;</span>
+        </div>
+      </div>
+
+      <div class="footer-caption">Specialty Roasted Coffee</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">CUSTOMIZE IT</div>
+
+      <div class="panel-section">
+        <h4>MILK &amp; ALTERNATIVES</h4>
+        <div class="line">Whole — Included</div>
+        <div class="line">Half &amp; Half • Breve • Almond • Oat • Coconut <b>$0.75</b></div>
+        <div class="line">Heavy Whipping Cream <b>$1.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>SWEETNESS</h4>
+        <div class="line">¼ Sweet • ½ Sweet • Regular — Included</div>
+        <div class="line">Extra Sweet <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>CLASSIC FLAVORS (INCLUDED)</h4>
+        <div class="line">Vanilla Bean • Salted Caramel • Caramel • White Chocolate •</div>
+        <div class="line">Brown Sugar • Cinnamon Roll • Black Salt Mocha</div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COFFEE FLAVORS &mdash;SIGNATURE</h4>
+        <div class="line">Vanilla Honey, Cookie Butter, Banana Nut, Blondie, Brunette,</div>
+        <div class="line">Caramel Brulee <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COLD FOAM</h4>
+        <div class="line">Sweet Cream or any Classic / Signature flavor <b>$1.00</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>DRIZZLE</h4>
+        <div class="line">Caramel, Chocolate, White Chocolate, Cookie Butter, Nutella, Sprinkle <b>$0.25</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 : SILVER LINE CLASSICS (Latte / Cappuccino / Espresso) ============ -->
+<section class="page">
+
+  <div class="two-col">
+    <div>
+      <h1 class="menu-heading">Silver Line Classics</h1>
+      <div class="menu-subheading">CREAMY TEXTURES AND DELICATE MICROFOAM</div>
+
+      <div class="item-block">
+        <div class="item-row">
+          <span class="item-name">Latte Silver Line</span>
+          <span class="badge">BEST SELLER</span>
+        </div>
+        <div class="item-desc">Silky steamed milk blended with espresso</div>
+        <div class="price-row">
+          <span class="price">$6.50</span>
+          <span class="price">$6.75</span>
+          <span class="price">$7.50</span>
+          <span class="price">$8.00<span class="price-sub">Hot Only</span></span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-name">Cappuccino Silver Rail</div>
+        <div class="item-desc">Espresso with steamed milk and velvety foam</div>
+        <div class="price-row">
+          <span class="price">$5.75</span>
+          <span class="price">$6.50</span>
+          <span class="price">$7.00</span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-name">Espresso Shot Coal Car</div>
+        <div class="item-desc">Pure espresso, perfectly pulled</div>
+        <div class="price-row">
+          <span class="price">$1.50<span class="price-sub">Single</span></span>
+          <span class="price">$3.00<span class="price-sub">Double</span></span>
+          <span class="price">$4.00<span class="price-sub">Triple</span></span>
+          <span class="price">$5.00<span class="price-sub">Quad</span></span>
+        </div>
+      </div>
+
+      <div class="footer-caption">Signature Steamed Sips</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">CUSTOMIZE IT</div>
+
+      <div class="panel-section">
+        <h4>MILK &amp; ALTERNATIVES</h4>
+        <div class="line">Whole — <b>Included</b></div>
+        <div class="line">Half &amp; Half • Breve • Almond • Oat • Coconut <b>$0.75</b></div>
+        <div class="line">Heavy Whipping Cream <b>$1.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>SWEETNESS</h4>
+        <div class="line">¼ Sweet • ½ Sweet • Regular — <b>Included</b></div>
+        <div class="line">Extra Sweet <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>CLASSIC FLAVORS (INCLUDED)</h4>
+        <div class="line">Vanilla Bean • Salted Caramel • Caramel • White Chocolate •</div>
+        <div class="line">Brown Sugar • Cinnamon Roll • Black Salt Mocha</div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COFFEE FLAVORS — SIGNATURE</h4>
+        <div class="line">Vanilla Honey, Cookie Butter, Banana Nut, Blondie, Brunette,</div>
+        <div class="line">Caramel Brulee <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COLD FOAM</h4>
+        <div class="line">Sweet Cream or any Classic / Signature flavor <b>$1.00</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>DRIZZLE</h4>
+        <div class="line">Caramel, Chocolate, White Chocolate, Cookie Butter, Nutella, Sprinkle <b>$0.25</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 4 : SILVER LINE CLASSICS (Matcha / Macchiato / Chai) ============ -->
+<section class="page">
+
+  <div class="two-col">
+    <div>
+      <h1 class="menu-heading">Silver Line Classics</h1>
+      <div class="menu-subheading">CREAMY TEXTURES AND DELICATE MICROFOAM</div>
+
+      <div class="item-block">
+        <div class="item-row">
+          <span class="item-name">Matcha Green Signal</span>
+          <span class="badge">BEST SELLER</span>
+        </div>
+        <div class="item-desc">Smooth ceremonial matcha</div>
+        <div class="price-row">
+          <span class="price">$6.50</span>
+          <span class="price">$7.50</span>
+          <span class="dash">&mdash;</span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-name">Macchiato Golden Caboose</div>
+        <div class="item-desc">Espresso topped with a touch of velvety foam</div>
+        <div class="price-row">
+          <span class="price">$5.75</span>
+          <span class="price">$6.25</span>
+          <span class="price">$6.75</span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-row">
+          <span class="item-name">Chai Spice Route</span>
+          <span class="badge">COMMING SOON</span>
+        </div>
+        <div class="item-desc">A blend of black tea and aromatic spices</div>
+        <div class="price-row">
+          <span class="dash">&mdash;</span>
+          <span class="dash">&mdash;</span>
+          <span class="dash">&mdash;</span>
+        </div>
+      </div>
+
+      <div class="footer-caption">Signature Steamed Sips</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">CUSTOMIZE IT</div>
+
+      <div class="panel-section">
+        <h4>MILK &amp; ALTERNATIVES</h4>
+        <div class="line">Whole — <b>Included</b></div>
+        <div class="line">Half &amp; Half • Breve • Almond • Oat • Coconut <b>$0.75</b></div>
+        <div class="line">Heavy Whipping Cream <b>$1.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>SWEETNESS</h4>
+        <div class="line">¼ Sweet • ½ Sweet • Regular — <b>Included</b></div>
+        <div class="line">Extra Sweet <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>CLASSIC FLAVORS (INCLUDED)</h4>
+        <div class="line">Vanilla Bean • Salted Caramel • Caramel • White Chocolate •</div>
+        <div class="line">Brown Sugar • Cinnamon Roll • Black Salt Mocha</div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COFFEE FLAVORS — SIGNATURE</h4>
+        <div class="line">Vanilla Honey, Cookie Butter, Banana Nut, Blondie, Brunette,</div>
+        <div class="line">Caramel Brulee <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COLD FOAM</h4>
+        <div class="line">Sweet Cream or any Classic / Signature flavor <b>$1.00</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>DRIZZLE</h4>
+        <div class="line">Caramel, Chocolate, White Chocolate, Cookie Butter, Nutella, Sprinkle <b>$0.25</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 5 : ICED CLASSICS & BREWS (Shaken Espresso / Cold Brew Midnight Rail / Frozen Latte) ============ -->
+<section class="page">
+
+  <div class="two-col">
+    <div>
+      <h1 class="menu-heading">Iced Classics &amp; Brews</h1>
+      <div class="menu-subheading">BOLD BREWS, CHILLED TO PERFECTION</div>
+
+      <div class="item-block">
+        <div class="item-name">Shaken Espresso Freightline</div>
+        <div class="item-desc">Hand-shaken for a smooth, frothy finish</div>
+        <div class="price-row">
+          <span class="price">$5.75</span>
+          <span class="price">$6.25</span>
+          <span class="price">$6.75</span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-row">
+          <span class="item-name">Cold Brew Midnight Rail</span>
+          <span class="badge">BEST SELLER</span>
+        </div>
+        <div class="item-desc">Slow-steeped for an ultra-smooth finish</div>
+        <div class="price-row">
+          <span class="price">$5.00</span>
+          <span class="price">$5.75</span>
+          <span class="price">$6.50</span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-row">
+          <span class="item-name">Frozen Latte Caboose Chill</span>
+          <span class="badge">COMMING SOON</span>
+        </div>
+        <div class="item-desc">Blended espresso and milk with a creamy finish</div>
+        <div class="price-row">
+          <span class="dash">&mdash;</span>
+          <span class="dash">&mdash;</span>
+          <span class="dash">&mdash;</span>
+        </div>
+      </div>
+
+      <div class="footer-caption">Crafted Cold Creations</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">CUSTOMIZE IT</div>
+
+      <div class="panel-section">
+        <h4>MILK &amp; ALTERNATIVES</h4>
+        <div class="line">Whole — <b>Included</b></div>
+        <div class="line">Half &amp; Half • Breve • Almond • Oat • Coconut <b>$0.75</b></div>
+        <div class="line">Heavy Whipping Cream <b>$1.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>SWEETNESS</h4>
+        <div class="line">¼ Sweet • ½ Sweet • Regular — <b>Included</b></div>
+        <div class="line">Extra Sweet <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>CLASSIC FLAVORS (INCLUDED)</h4>
+        <div class="line">Vanilla Bean • Salted Caramel • Caramel • White Chocolate •</div>
+        <div class="line">Brown Sugar • Cinnamon Roll • Black Salt Mocha</div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COFFEE FLAVORS — SIGNATURE</h4>
+        <div class="line">Vanilla Honey, Cookie Butter, Banana Nut, Blondie, Brunette,</div>
+        <div class="line">Caramel Brulee <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COLD FOAM</h4>
+        <div class="line">Sweet Cream or any Classic / Signature flavor <b>$1.00</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>DRIZZLE</h4>
+        <div class="line">Caramel, Chocolate, White Chocolate, Cookie Butter, Nutella, Sprinkle <b>$0.25</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 6 : ICED CLASSICS & BREWS (Midnight Express / Cold Brew Iron Route) ============ -->
+<section class="page">
+
+  <div class="two-col">
+    <div>
+      <h1 class="menu-heading">Iced Classics &amp; Brews</h1>
+      <div class="menu-subheading">BOLD BREWS, CHILLED TO PERFECTION</div>
+
+      <div class="item-block">
+        <div class="item-name">Classic CIC Midnight Express</div>
+        <div class="item-desc">Classic coffee flavor with a creamy twist</div>
+        <div class="price-row">
+          <span class="price">$5.75</span>
+          <span class="price">$6.25</span>
+          <span class="price">$7.25</span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-row">
+          <span class="item-name">Cold Brew CIC Iron Route</span>
+          <span class="badge">BEST SELLER</span>
+        </div>
+        <div class="item-desc">Slow-steeped cold brew with a creamy finish</div>
+        <div class="price-row">
+          <span class="price">$6.50</span>
+          <span class="price">$7.25</span>
+          <span class="price">$8.00</span>
+        </div>
+      </div>
+
+      <div class="footer-caption">Crafted Cold Creations</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">CUSTOMIZE IT</div>
+
+      <div class="panel-section">
+        <h4>MILK &amp; ALTERNATIVES</h4>
+        <div class="line">Whole — <b>Included</b></div>
+        <div class="line">Half &amp; Half • Breve • Almond • Oat • Coconut <b>$0.75</b></div>
+        <div class="line">Heavy Whipping Cream <b>$1.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>SWEETNESS</h4>
+        <div class="line">¼ Sweet • ½ Sweet • Regular — <b>Included</b></div>
+        <div class="line">Extra Sweet <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>CLASSIC FLAVORS (INCLUDED)</h4>
+        <div class="line">Vanilla Bean • Salted Caramel • Caramel • White Chocolate •</div>
+        <div class="line">Brown Sugar • Cinnamon Roll • Black Salt Mocha</div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COFFEE FLAVORS — SIGNATURE</h4>
+        <div class="line">Vanilla Honey, Cookie Butter, Banana Nut, Blondie, Brunette,</div>
+        <div class="line">Caramel Brulee <b>$0.50</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>COLD FOAM</h4>
+        <div class="line">Sweet Cream or any Classic / Signature flavor <b>$1.00</b></div>
+      </div>
+
+      <div class="panel-section">
+        <h4>DRIZZLE</h4>
+        <div class="line">Caramel, Chocolate, White Chocolate, Cookie Butter, Nutella, Sprinkle <b>$0.25</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 7 : TEAS & BOTANICALS ============ -->
+<section class="page">
+
+  <div class="two-col">
+    <div>
+      <h1 class="menu-heading">Teas &amp; Botanicals</h1>
+      <div class="menu-subheading">CAREFULLY SELECTED BLENDS</div>
+
+      <div class="item-block">
+        <div class="item-name">Hot Tea &ndash; Quiet Car</div>
+        <div class="item-desc">Premium teas, expertly steeped</div>
+        <div class="price-row">
+          <span class="price">$3.50</span>
+          <span class="price">$4.00</span>
+          <span class="price">$4.50</span>
+        </div>
+      </div>
+
+      <div class="panel-section" style="margin-top:40px;">
+        <h4>MILK &amp; ALTERNATIVES</h4>
+        <div class="line">Whole — <b>Included</b></div>
+        <div class="line">Half &amp; Half • Breve • Almond • Oat • Coconut <b>$0.75</b></div>
+        <div class="line">Heavy Whipping Cream <b>$1.50</b></div>
+      </div>
+
+      <div class="footer-caption">Steeped to Perfection</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title" style="letter-spacing:4px;">COLLECTIONS</div>
+
+      <div class="panel-section">
+        <h4>BOTANICAL TEAS</h4>
+        <div class="line">• Turmeric Ginger</div>
+        <div class="line">• Blueberry Hibiscus</div>
+        <div class="line">• Chamomile Medley</div>
+        <div class="line">• Lavender Mint</div>
+      </div>
+
+      <div class="panel-section">
+        <h4>GREEN TEAS</h4>
+        <div class="line">• Jasmine</div>
+        <div class="line">• Jade Cloud</div>
+        <div class="line">• Matcha Super</div>
+        <div class="line">• Yuza Peach</div>
+      </div>
+
+      <div class="panel-section">
+        <h4>BLACK TEAS</h4>
+        <div class="line">• Earl Grey</div>
+        <div class="line">• Masala Chai</div>
+        <div class="line">• English Breakfast</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 8 : TAKE IT HOME ============ -->
+<section class="page">
+
+  <h1 class="menu-heading">Take It Home</h1>
+  <div class="menu-subheading">READY TO GO</div>
+
+  <div class="home-grid" style="margin-top:20px;">
+    <div>
+      <div class="home-item">
+        <div class="home-name">Ground Espresso (10oz)</div>
+        <div class="home-desc">Rich, smooth, and expertly roasted</div>
+        <div class="home-price-row">
+          <span class="home-price">$13.99</span>
+          <span class="home-price">2 for $26.00</span>
+        </div>
+      </div>
+
+      <div class="home-item">
+        <div class="home-name">Tumbler</div>
+        <div class="home-desc">Sip in style, wherever you go</div>
+        <div class="home-price-row">
+          <span class="home-price">$25.00</span>
+          <span class="home-price">$28.13 <span class="home-price-label">With First Fill</span></span>
+        </div>
+      </div>
+
+      <div class="home-item">
+        <div class="home-name">Express Refresher To-Go Packets</div>
+        <div class="home-desc">Your favorite refresher, ready to go</div>
+        <div class="home-price-row">
+          <span class="home-price">$4.00</span>
+          <span class="home-price-label">Quantity discounts available</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="home-item">
+        <div class="home-name">Hot Cup Sleeve</div>
+        <div class="home-desc">Keep your hands happy, sip by sip</div>
+        <div class="home-price-row">
+          <span class="home-price">$9.00</span>
+        </div>
+      </div>
+
+      <div class="home-item">
+        <div class="home-name">Cold Cup Sleeve</div>
+        <div class="home-desc">Keep your hands happy, sip by sip</div>
+        <div class="home-price-row">
+          <span class="home-price">$15.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-caption">Additional Items Merch</div>
+</section>
+
+<!-- ============ PAGE 9 : VITAMIN REFRESHERS MENU ============ -->
+<section class="page">
+
+  <div class="two-col">
+    <div>
+      <h1 class="menu-heading">Vitamin Refreshers</h1>
+      <div class="menu-subheading">Botanical caffeine, blended with your favorite flavor.</div>
+
+      <div class="panel-section">
+        <div class="line">• 200mg Caffeine • 10 Calories</div>
+        <div class="line">• Sugar-Free • Aspartame-Free</div>
+      </div>
+
+      <div class="item-block" style="margin-top:20px;">
+        <div class="item-row">
+          <span class="item-name">Express Refresher</span>
+          <span class="badge">BEST SELLER</span>
+        </div>
+        <div class="item-desc">Refreshing flavor with a powerful energy boost</div>
+        <div class="price-row">
+          <span class="price">$5.75</span>
+          <span class="price">$6.25</span>
+          <span class="price">$6.75</span>
+          <span class="price">$7.75</span>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-name">Kids &mdash; Express Refresher</div>
+        <div class="item-desc">Big flavor, no caffeine</div>
+        <div class="price-row">
+          <span class="price">$5.00</span>
+          <span class="dash">&mdash;</span>
+          <span class="dash">&mdash;</span>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h4>ADD-ONS</h4>
+        <div class="line">Extra Caff • Glitter • Coconut Milk <b>$0.50</b></div>
+        <div class="line">Whipped • Fizzy • Coconut Milk <b>$0.75</b></div>
+        <div class="line">Collagen <b>$1.00</b></div>
+        <div class="line">Make It Dirty <b>$3.00</b></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">CUSTOMIZE IT</div>
+
+      <div class="panel-section">
+        <h4>CAFFEINE BASES</h4>
+        <div class="line">• Berry • Citrus • Orange • Tropical</div>
+      </div>
+
+      <div class="panel-section">
+        <h4>FLAVORS</h4>
+        <div class="flavor-cols">
+          <div>• Açaí</div><div>• Fruit Punch</div><div>• Peach</div>
+          <div>• Banana</div><div>• Grapefruit</div><div>• Piña Colada</div>
+          <div>• Blackberry</div><div>• Grape</div><div>• Pineapple</div>
+          <div>• Blue Blast</div><div>• Green Apple</div><div>• Pink Lemonade</div>
+          <div>• Blue Raz</div><div>• Lavender Lemon</div><div>• Pink Starburst</div>
+          <div>• Blueberry</div><div>• Lemonade</div><div>• Pomegranate</div>
+          <div>• Cherry</div><div>• Limeade</div><div>• Rainbow Candy</div>
+          <div>• Coconut</div><div>• Mango</div><div>• Raspberry</div>
+          <div>• Cool Cucumber</div><div>• Margarita</div><div>• Strawberry</div>
+          <div>• Cotton Candy</div><div>• Melon</div><div>• Vanilla</div>
+          <div>• Cranberry</div><div>• Orange</div><div>• Watermelon</div>
+          <div>• Dragon Fruit</div><div>• Passion Fruit</div><div>• White Grape</div>
+        </div>
+      </div>
+
+      <div class="footer-caption" style="margin-top:10px;">Ask Your Barista About Seasonal Flavors</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 10 : VITAMIN REFRESHERS - POPULAR LIST ============ -->
+<section class="page">
+  <h1 class="list-page-title">Our Most Popular Vitamin Refreshers</h1>
+
+  <div class="list-cols">
+    <ul>
+      <li>Bahama Mama</li>
+      <li>Beach Please</li>
+      <li>Blow Pop</li>
+      <li>Cactus Juice</li>
+      <li>Calypso Cooler</li>
+      <li>Cotton Candy</li>
+      <li>Cranberry Sangria</li>
+      <li>Desert Peach</li>
+      <li>Feelin' Froggy</li>
+      <li>Flamingo</li>
+      <li>Gypsy Juice</li>
+      <li>Liquid Sunrise</li>
+      <li>Desert Peach</li>
+    </ul>
+    <ul>
+      <li>Feelin' Froggy</li>
+      <li>Flamingo</li>
+      <li>Gypsy Juice</li>
+      <li>Liquid Sunrise</li>
+      <li>Malibu Barbie</li>
+      <li>Mango Tango</li>
+      <li>Pixie Stix</li>
+      <li>Pretty in Pink</li>
+      <li>River Water</li>
+      <li>Smokeshow</li>
+      <li>Sour Patch</li>
+      <li>Watermelon Sugar</li>
+    </ul>
+  </div>
+
+  <div class="list-footer">
+    <span>Express Energy Botanicals</span>
+    <span>Ask Your Barista About Seasonal Flavors</span>
+  </div>
+</section>
+
+</body>
+</html>
