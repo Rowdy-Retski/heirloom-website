@@ -48,7 +48,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2); 
+            background: rgba(255, 255, 255, 0.4); 
             z-index: -1;
         }
 
@@ -56,7 +56,7 @@
         .font-holiday { font-family: 'Great Vibes', cursive; }
 
         .glass-section {
-            background: rgba(255, 255, 255, 0.72); 
+            background: rgba(255, 255, 255, 0.9); 
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
@@ -160,7 +160,7 @@
     <div class="fixed-bg"></div>
     <div class="bg-overlay"></div>
 
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-[100]">
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-[100]">
         <div class="max-w-[1600px] mx-auto flex items-center justify-between px-6 py-3">
             <img src="images/logo.png" alt="Heirloom Logo" class="header-logo">
 
@@ -175,12 +175,6 @@
                     <a href="https://shop.theheirloomstore.com/" target="_blank" class="btn-3d btn-3d-gold">Shop Online</a>
                     <a href="https://theheirloomexpresscafe.com" target="_blank" class="btn-3d btn-3d-gold">Order Coffee Online</a>
                 </nav>
-                <div class="mt-3 text-center">
-                    <p class="text-sm md:text-base font-bold" style="color: var(--header-brown);">401 Maple Street, Carrollton, GA 30117</p>
-                    <p class="text-xs md:text-sm text-gray-600 mt-1">
-                        Starting Aug 1st &mdash; Mon&ndash;Fri: 6am&ndash;6pm &bull; Sat: 10am&ndash;6pm &bull; Sun: Closed
-                    </p>
-                </div>
             </div>
 
             <img src="images/heirloom-express-logo.jpg" alt="Heirloom Express Logo" class="header-logo">
@@ -190,7 +184,7 @@
     <main class="max-w-[1400px] mx-auto px-4 relative z-10">
         
         <section id="home" class="min-h-[60vh] flex flex-col items-center justify-center text-center pt-10">
-            <div class="bg-white/45 backdrop-blur-md p-10 rounded-[3rem] border border-white/40 shadow-xl">
+            <div class="bg-white/60 backdrop-blur-md p-10 rounded-[3rem] border border-white/40 shadow-xl">
                 <div class="inline-block text-white px-8 py-2 rounded-full font-bold mb-6 tracking-widest uppercase text-sm" style="background-color: var(--school-navy);">
                     🍎 Back to School 🎒
                 </div>
