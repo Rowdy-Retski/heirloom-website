@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Heirloom Store - Fall Festival & Season</title>
+    <title>The Heirloom Store - Back to School</title>
     
     <link rel="icon" href="images/logo.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,19 +14,19 @@
     
     <style>
         :root {
-            --text-charcoal: #2C221E; 
-            --accent-rust: #D95325;
-            --btn-shadow: #8B2C0D; 
-            --header-brown: #4A2E1B; 
-            --fall-amber: #E08214;
-            --fall-burgundy: #7C2D12;
-            --fall-gold: #D4AF37;
+            --text-charcoal: #333333; 
+            --accent-pink: #F48FB1;
+            --btn-shadow: #AD1457; 
+            --header-brown: #5D4037; 
+            --school-navy: #1E3A5F;
+            --school-gold: #D4AF37;
+            --school-red: #B8402F;
         }
 
         body {
             color: var(--text-charcoal);
             font-family: 'Inter', sans-serif;
-            background-color: #fcf8f2; 
+            background-color: #fdfaf6; 
         }
 
         .fixed-bg {
@@ -48,7 +48,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(245, 239, 230, 0.45); 
+            background: rgba(255, 255, 255, 0.2); 
             z-index: -1;
         }
 
@@ -56,17 +56,17 @@
         .font-holiday { font-family: 'Great Vibes', cursive; }
 
         .glass-section {
-            background: rgba(255, 253, 250, 0.78); 
+            background: rgba(255, 255, 255, 0.72); 
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(224, 130, 20, 0.25);
-            box-shadow: 0 8px 32px 0 rgba(124, 45, 18, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
             border-radius: 2.5rem;
             margin: 4rem auto;
             padding: 4rem 2rem;
         }
 
         .btn-3d {
-            background-color: var(--accent-rust);
+            background-color: var(--accent-pink);
             color: #ffffff;
             font-weight: 700;
             padding: 0.5rem 1rem; 
@@ -79,8 +79,7 @@
         }
         
         .btn-3d-gold {
-            background-color: var(--fall-gold);
-            color: #2C221E;
+            background-color: #D4AF37;
             box-shadow: 0px 3px 0px #8B732A;
         }
 
@@ -102,9 +101,9 @@
             background: white; overflow: hidden;
         }
 
-        .btn-3d-burgundy {
-            background-color: var(--fall-burgundy);
-            box-shadow: 0px 3px 0px #451A03;
+        .btn-3d-navy {
+            background-color: var(--school-navy);
+            box-shadow: 0px 3px 0px #0F1F33;
         }
 
         /* Menu modal */
@@ -143,7 +142,7 @@
             width: 2.5rem;
             height: 2.5rem;
             border-radius: 9999px;
-            background: var(--fall-burgundy);
+            background: var(--school-navy);
             color: #fff;
             font-size: 1.25rem;
             font-weight: 700;
@@ -161,7 +160,7 @@
     <div class="fixed-bg"></div>
     <div class="bg-overlay"></div>
 
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-[100]">
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-[100]">
         <div class="max-w-[1600px] mx-auto flex items-center justify-between px-6 py-3">
             <img src="images/logo.png" alt="Heirloom Logo" class="header-logo">
 
@@ -172,14 +171,14 @@
                     <a href="#cafe" class="btn-3d">The Express Cafe</a>
                     <a href="#history" class="btn-3d">History</a>
                     <a href="#malina" class="btn-3d">Founder</a>
-                    <button type="button" onclick="document.getElementById('menu-modal').classList.add('active'); document.body.style.overflow='hidden';" class="btn-3d btn-3d-burgundy">Full Menu</button>
+                    <button type="button" onclick="document.getElementById('menu-modal').classList.add('active'); document.body.style.overflow='hidden';" class="btn-3d btn-3d-navy">Full Menu</button>
                     <a href="https://shop.theheirloomstore.com/" target="_blank" class="btn-3d btn-3d-gold">Shop Online</a>
                     <a href="https://theheirloomexpresscafe.com" target="_blank" class="btn-3d btn-3d-gold">Order Coffee Online</a>
                 </nav>
                 <div class="mt-3 text-center">
                     <p class="text-sm md:text-base font-bold" style="color: var(--header-brown);">401 Maple Street, Carrollton, GA 30117</p>
-                    <p class="text-xs md:text-sm text-gray-700 mt-1">
-                        Mon&ndash;Fri: 6am&ndash;6pm &bull; Sat: 10am&ndash;6pm &bull; Sun: Closed
+                    <p class="text-xs md:text-sm text-gray-600 mt-1">
+                        Starting Aug 1st &mdash; Mon&ndash;Fri: 6am&ndash;6pm &bull; Sat: 10am&ndash;6pm &bull; Sun: Closed
                     </p>
                 </div>
             </div>
@@ -191,18 +190,15 @@
     <main class="max-w-[1400px] mx-auto px-4 relative z-10">
         
         <section id="home" class="min-h-[60vh] flex flex-col items-center justify-center text-center pt-10">
-            <div class="bg-white/60 backdrop-blur-md p-10 rounded-[3rem] border border-amber-200 shadow-xl max-w-4xl mx-auto">
-                <div class="inline-block text-white px-8 py-2 rounded-full font-bold mb-6 tracking-widest uppercase text-sm shadow-sm" style="background-color: var(--accent-rust);">
-                    🍁 Fall Festival &bull; September 26th 🎃
+            <div class="bg-white/45 backdrop-blur-md p-10 rounded-[3rem] border border-white/40 shadow-xl">
+                <div class="inline-block text-white px-8 py-2 rounded-full font-bold mb-6 tracking-widest uppercase text-sm" style="background-color: var(--school-navy);">
+                    🍎 Back to School 🎒
                 </div>
-                <h2 class="font-holiday text-6xl md:text-8xl mb-4" style="color: var(--fall-burgundy);">Autumn Festival Season</h2>
-                <p class="text-gray-800 text-lg md:text-2xl font-light tracking-wide italic mb-6">
-                    Join us on <strong>September 26th</strong> for our grand Fall Festival! Crisp air, golden leaves, spiced artisan coffees, and timeless treasures await you at the Mandeville Mansion.
+                <h2 class="font-holiday text-6xl md:text-8xl mb-4" style="color: var(--school-red);">Back to School Season</h2>
+                <p class="text-gray-700 text-lg md:text-2xl font-light tracking-wide italic mb-6">
+                    From first day of kindergarten to move-in day at college &mdash; gifts that tell a story, coffee that fuels the journey.
                 </p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button type="button" onclick="document.getElementById('menu-modal').classList.add('active'); document.body.style.overflow='hidden';" class="btn-3d btn-3d-burgundy px-8 py-3">☕ View Fall Cafe Menu</button>
-                    <a href="#cafe" class="btn-3d px-8 py-3 bg-amber-600 hover:bg-amber-700">🍂 Explore Autumn Sips</a>
-                </div>
+                <button type="button" onclick="document.getElementById('menu-modal').classList.add('active'); document.body.style.overflow='hidden';" class="btn-3d btn-3d-navy px-8 py-3">☕ View Cafe Menu</button>
             </div>
         </section>
 
@@ -218,59 +214,59 @@
             </div>
         </section>
 
-        <section id="cafe" class="glass-section border-l-8 border-amber-500">
+        <section id="cafe" class="glass-section border-l-8 border-pink-200">
             <div class="text-center mb-14">
-                <h2 class="text-4xl font-bold text-amber-900 mb-3 italic">The Heirloom Express Cafe</h2>
-                <h3 class="text-2xl font-holiday mb-4" style="color: var(--accent-rust);">Fall Festival Sips & Sweets</h3>
+                <h2 class="text-4xl font-bold text-emerald-800 mb-3 italic">The Heirloom Express Cafe</h2>
+                <h3 class="text-2xl font-holiday mb-4" style="color: var(--school-red);">Back to School Sips</h3>
                 <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                    Step onto our historic railcar and celebrate the harvest season with rich seasonal lattes, spiced cold foams, and autumn-inspired refreshments crafted for crisp fall days.
+                    Step onto our historic railcar and fuel up for the school year ahead &mdash; new espresso favorites and refreshing coolers, made for early drop-offs and late-night study sessions alike.
                 </p>
             </div>
 
             <div class="mb-14">
-                <h4 class="text-xl font-bold text-amber-950 mb-6 uppercase tracking-wide text-center">Festival Special Espresso Favorites</h4>
+                <h4 class="text-xl font-bold text-emerald-900 mb-6 uppercase tracking-wide text-center">Limited Time Espresso Favorites</h4>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100">
-                        <h5 class="text-xl font-bold text-amber-900 mb-2">🍁 Harvest Pumpkin Spice Latte</h5>
-                        <p class="text-gray-700 leading-relaxed">
-                            A rich blend of espresso, velvety steamed milk, and authentic pumpkin spices, crowned with sweet vanilla cold foam and a dusting of cinnamon crumb &mdash; the ultimate autumn comfort drink.
+                    <div class="bg-white/80 rounded-3xl p-8 shadow-md border border-white/60">
+                        <h5 class="text-xl font-bold text-emerald-800 mb-2">❤️🤍 Candy Cane Lane Latte</h5>
+                        <p class="text-gray-600 leading-relaxed">
+                            A White Chocolate Peppermint Latte crowned with silky White Chocolate Cold Foam and a dusting of Peppermint Crumb &mdash; a sweet, minty pick-me-up between classes or meetings.
                         </p>
                     </div>
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100">
-                        <h5 class="text-xl font-bold text-amber-900 mb-2">🍂 Caramel Apple Crisp Macchiato</h5>
-                        <p class="text-gray-700 leading-relaxed">
-                            Layered espresso, steamed milk, and brown sugar apple syrup, finished with a generous drizzle of golden caramel. Sweet, crisp, and reminiscent of orchard visits.
+                    <div class="bg-white/80 rounded-3xl p-8 shadow-md border border-white/60">
+                        <h5 class="text-xl font-bold text-emerald-800 mb-2">🎄🤎 Sweet and Spiced</h5>
+                        <p class="text-gray-600 leading-relaxed">
+                            Our cozy Gingerbread Latte, layered with Sweet Cream Cold Foam and a warm Gingerbread Crumb topping &mdash; comfort in a cup for chilly mornings on campus.
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="mb-14">
-                <h4 class="text-xl font-bold text-amber-950 mb-6 uppercase tracking-wide text-center">Autumn Harvest Refreshers</h4>
+                <h4 class="text-xl font-bold text-emerald-900 mb-6 uppercase tracking-wide text-center">New Season Refreshers</h4>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100 flex flex-col">
-                        <h5 class="text-xl font-bold text-orange-600 mb-2">Autumn Sunset</h5>
-                        <p class="text-gray-700 leading-relaxed flex-1">
-                            A vibrant refresher bursting with blood orange, cranberry, and sweet vanilla notes, finished with sparkling water and a refreshing berry finish.
+                    <div class="bg-white/80 rounded-3xl p-8 shadow-md border border-white/60 flex flex-col">
+                        <h5 class="text-xl font-bold text-pink-500 mb-2">Holidate</h5>
+                        <p class="text-gray-600 leading-relaxed flex-1">
+                            A vibrant, candy-bright refresher bursting with strawberry, watermelon, and cotton candy sweetness, finished with a cool pop of blue raspberry. Playful, fruity, and impossible not to smile at.
                         </p>
                     </div>
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100 flex flex-col">
-                        <h5 class="text-xl font-bold text-orange-600 mb-2">Orchard Berry</h5>
-                        <p class="text-gray-700 leading-relaxed flex-1">
-                            A gorgeous layered berry beverage featuring blackberry and crisp apple over sparkling ice &mdash; as stunning to look at as it is refreshing for the festival.
+                    <div class="bg-white/80 rounded-3xl p-8 shadow-md border border-white/60 flex flex-col">
+                        <h5 class="text-xl font-bold text-pink-500 mb-2">Bob Marley</h5>
+                        <p class="text-gray-600 leading-relaxed flex-1">
+                            A gorgeous layered tropical getaway in a cup: creamy pineapple coconut on the bottom, a bright blue raspberry middle, and a rainbow candy finish on top. As fun to look at as it is to drink.
                         </p>
                     </div>
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100 flex flex-col">
-                        <h5 class="text-xl font-bold text-orange-600 mb-2">Spiced Pomegranate Spritzer</h5>
-                        <p class="text-gray-700 leading-relaxed flex-1">
-                            A crisp, bubbly refresher blending pomegranate, cranberry, and a hint of cinnamon over sparkling water &mdash; lightly sweet, effervescent, and festive.
+                    <div class="bg-white/80 rounded-3xl p-8 shadow-md border border-white/60 flex flex-col">
+                        <h5 class="text-xl font-bold text-pink-500 mb-2">Pomegranate Spritzer</h5>
+                        <p class="text-gray-600 leading-relaxed flex-1">
+                            A crisp, bubbly refresher blending grape, pomegranate, and cranberry over sparkling water &mdash; lightly sweet, effervescent, and a great grab-and-go option between classes.
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="text-center">
-                <button type="button" onclick="document.getElementById('menu-modal').classList.add('active'); document.body.style.overflow='hidden';" class="btn-3d btn-3d-burgundy px-8 py-3 mb-8">View Full Menu</button>
+                <button type="button" onclick="document.getElementById('menu-modal').classList.add('active'); document.body.style.overflow='hidden';" class="btn-3d btn-3d-navy px-8 py-3 mb-8">View Full Menu</button>
 
                 <div class="flex flex-col items-center">
                     <div class="img-frame rounded-2xl p-3 inline-block">
@@ -281,31 +277,31 @@
             </div>
         </section>
 
-        <section id="spotlight" class="glass-section bg-amber-50/40">
+        <section id="spotlight" class="glass-section bg-emerald-50/50">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <a href="https://shop.theheirloomstore.com/products/backless-a-line-floral-maxi?variant=42751653478490" target="_blank" class="block w-full">
                     <div class="img-frame rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto hover:opacity-90 transition-opacity">
-                        <img src="images/online-store.webp" alt="Fall Apparel & Decor" onerror="this.src='https://placehold.co/600x750?text=Fall+Collection'">
+                        <img src="images/online-store.webp" alt="Back to School Apparel" onerror="this.src='https://placehold.co/600x750?text=Back+to+School'">
                     </div>
                 </a>
                 <div>
-                    <h2 class="text-3xl font-bold text-amber-950 mb-4">From Our Online Shop</h2>
-                    <h3 class="text-xl text-orange-600 mb-6 font-semibold">The Heirloom Autumn Collection</h3>
+                    <h2 class="text-3xl font-bold text-emerald-900 mb-4">From Our Online Shop</h2>
+                    <h3 class="text-xl text-pink-500 mb-6 font-semibold">The Heirloom Branded Clothing</h3>
                     <p class="text-gray-700 mb-8 leading-relaxed">
-                        Embrace the cozy spirit of the season with our curated fall apparel, warm accessories, and rustic home decor. Whether you're getting ready for our September 26th Fall Festival or updating your wardrobe for sweater weather, our collection brings timeless warmth to your everyday life.
+                        Gear up for the new school year with our curated apparel and accessories. Whether you're packing lunchboxes for the little ones or care packages for a college dorm, our pieces blend comfort with the timeless charm of The Heirloom Store &mdash; perfect for busy mornings and campus adventures alike.
                     </p>
-                    <a href="https://shop.theheirloomstore.com/collections/all-apparel-and-accessories" target="_blank" class="btn-3d btn-3d-gold px-10 py-4">Shop Fall Collection</a>
+                    <a href="https://shop.theheirloomstore.com/collections/all-apparel-and-accessories" target="_blank" class="btn-3d btn-3d-gold px-10 py-4">Shop Apparel & Accessories</a>
                 </div>
             </div>
         </section>
 
         <section id="history" class="glass-section">
-            <h2 class="text-5xl font-bold text-amber-950 mb-16 text-center">Mandeville Mansion Legacy</h2>
+            <h2 class="text-5xl font-bold text-emerald-900 mb-16 text-center">Mandeville Mansion Legacy</h2>
             <div class="grid lg:grid-cols-2 gap-16">
                 <div class="space-y-12">
                     <div>
-                        <span class="text-orange-600 font-bold text-sm tracking-tighter uppercase">1889—1894</span>
-                        <h4 class="text-2xl font-bold mb-4 text-amber-900">Technological Pioneers</h4>
+                        <span class="text-pink-500 font-bold text-sm tracking-tighter uppercase">1889—1894</span>
+                        <h4 class="text-2xl font-bold mb-4 text-emerald-800">Technological Pioneers</h4>
                         <p class="text-gray-700 leading-relaxed">
                             Built by <strong>L.C. Mandeville</strong>, this home was an engineering marvel. It boasted Carrollton's first 
                             indoor plumbing and telephone line. To ensure water pressure, massive storage tanks were hidden within the third-floor walls.
@@ -316,7 +312,7 @@
                             <img src="images/original-mansion.jpg" alt="Original Mansion View" onerror="this.src='https://placehold.co/800x450?text=Original+Mansion'">
                         </div>
                         <div class="mt-4">
-                            <h4 class="text-2xl font-bold mb-2 text-amber-900">The "Maple Street" Origin</h4>
+                            <h4 class="text-2xl font-bold mb-2 text-emerald-800">The "Maple Street" Origin</h4>
                             <p class="text-gray-700">
                                 Mandeville imported <strong>Vermont Maple trees</strong> to Carrollton... renaming of Bowdon Street to Maple Street.
                             </p>
@@ -330,9 +326,9 @@
                         <div class="flex flex-col"><div class="aspect-square rounded-2xl img-frame mb-2"><img src="images/original-mansion-owner.jpg"></div><span class="text-xs font-bold text-center uppercase text-gray-500">Original Owner</span></div>
                         <div class="flex flex-col"><div class="aspect-square rounded-2xl img-frame mb-2"><img src="images/mansion-window.jpg"></div><span class="text-xs font-bold text-center uppercase text-gray-500">The 3rd Floor Window</span></div>
                     </div>
-                    <div class="bg-amber-950 text-white p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
-                        <h3 class="text-3xl font-bold mb-4 font-holiday italic text-amber-200">Legends & Spirits</h3>
-                        <p class="text-amber-50 text-base leading-relaxed italic relative z-10">
+                    <div class="bg-emerald-900 text-white p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+                        <h3 class="text-3xl font-bold mb-4 font-holiday italic text-emerald-100">Legends & Spirits</h3>
+                        <p class="text-emerald-50 text-base leading-relaxed italic relative z-10">
                             "The Mansion is not without its mysteries... report seeing silhouettes watching from the third-story window."
                         </p>
                     </div>
@@ -345,8 +341,8 @@
                 <div class="order-2 lg:order-1 flex flex-col items-center">
                     <div class="relative w-full max-w-md group">
                         <div class="aspect-[4/5] rounded-[2.5rem] img-frame relative z-20"><img src="images/malina-owner.jpg"></div>
-                        <div class="absolute -inset-6 bg-gradient-to-tr from-amber-500/20 to-orange-600/20 blur-3xl rounded-3xl z-10"></div>
-                        <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-amber-950 text-white px-12 py-4 rounded-full font-holiday text-4xl whitespace-nowrap z-30 shadow-2xl">Malina Falkner</div>
+                        <div class="absolute -inset-6 bg-gradient-to-tr from-pink-400/20 to-emerald-400/20 blur-3xl rounded-3xl z-10"></div>
+                        <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-emerald-900 text-white px-12 py-4 rounded-full font-holiday text-4xl whitespace-nowrap z-30 shadow-2xl">Malina Falkner</div>
                     </div>
                     <div class="grid grid-cols-4 gap-4 mt-20 w-full">
                         <div class="aspect-square rounded-2xl img-frame"><img src="images/malina-family.jpg"></div>
@@ -357,11 +353,11 @@
                     <p class="mt-4 text-xs font-bold text-gray-400 uppercase tracking-widest">In Memory of Darlene & Jacob</p>
                 </div>
                 <div class="order-1 lg:order-2">
-                    <h2 class="text-5xl font-bold text-amber-950 mb-8">A Journey of Renewed Purpose</h2>
+                    <h2 class="text-5xl font-bold text-emerald-900 mb-8">A Journey of Renewed Purpose</h2>
                     <div class="space-y-6 text-gray-700 text-lg leading-relaxed">
                         <p>For Malina Falkner, opening The Heirloom Store was a calling born from loss. Following the passing of her mother, <strong>Darlene</strong>, and the unexpected loss of her son, <strong>Jacob</strong>, Malina sought to navigate her grief through service and creation.</p>
                         <p>She found a path to renewed purpose by giving back, helping those who have experienced their own storms find a sense of beauty and continuity.</p>
-                        <blockquote class="border-l-8 border-orange-500 bg-orange-50 p-8 rounded-r-3xl italic font-serif text-amber-950 text-xl shadow-inner">
+                        <blockquote class="border-l-8 border-pink-400 bg-pink-50 p-8 rounded-r-3xl italic font-serif text-emerald-900 text-xl shadow-inner">
                             "The store is my way of breathing new life into the old. By locally crafting and repurposing items, we insert joy back into the community, showing that growth is always possible."
                         </blockquote>
                         <p>Every antique treasure and handcrafted heirloom in the store tells a story of endurance. Malina’s vision was to revitalize history—offering a sanctuary where memories are honored and new beginnings are celebrated every day.</p>
@@ -379,58 +375,58 @@
         </div>
     </div>
 
-    <footer class="bg-amber-950 text-white pt-24 pb-12 relative z-10">
+    <footer class="bg-emerald-950 text-white pt-24 pb-12 relative z-10">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <img src="images/logo.png" alt="Footer Logo" class="w-32 h-32 mx-auto rounded-full mb-8 border-4 border-white/10 shadow-2xl object-cover bg-white">
-            <h3 class="font-holiday text-6xl mb-8 text-amber-100">The Heirloom Store</h3>
+            <h3 class="font-holiday text-6xl mb-8 text-emerald-100">The Heirloom Store</h3>
             
             <div class="grid md:grid-cols-2 gap-8 mb-12 text-left max-w-2xl mx-auto bg-white/5 p-8 rounded-3xl">
                 <div>
-                    <h5 class="text-orange-400 font-bold mb-3 uppercase text-xs tracking-widest">Follow Our Journey</h5>
+                    <h5 class="text-pink-400 font-bold mb-3 uppercase text-xs tracking-widest">Follow Our Journey</h5>
                     <div class="space-y-3">
                         <div>
-                            <p class="text-xs text-amber-300 uppercase font-bold mb-1">The Heirloom Store</p>
+                            <p class="text-xs text-emerald-300 uppercase font-bold mb-1">The Heirloom Store</p>
                             <div class="flex gap-4">
-                                <a href="https://www.facebook.com/theheirloomstore92" target="_blank" class="text-amber-100 hover:text-orange-400 transition-colors">Facebook</a>
-                                <a href="https://www.instagram.com/the_heirloomstore/" target="_blank" class="text-amber-100 hover:text-orange-400 transition-colors">Instagram</a>
+                                <a href="https://www.facebook.com/theheirloomstore92" target="_blank" class="text-emerald-100 hover:text-pink-400 transition-colors">Facebook</a>
+                                <a href="https://www.instagram.com/the_heirloomstore/" target="_blank" class="text-emerald-100 hover:text-pink-400 transition-colors">Instagram</a>
                             </div>
                         </div>
                         <div>
-                            <p class="text-xs text-amber-300 uppercase font-bold mb-1">Express Cafe</p>
+                            <p class="text-xs text-emerald-300 uppercase font-bold mb-1">Express Cafe</p>
                             <div class="flex gap-4">
-                                <a href="https://www.facebook.com/HeirloomExpressCafe" target="_blank" class="text-amber-100 hover:text-orange-400 transition-colors">Facebook</a>
-                                <a href="https://www.instagram.com/the_heirloomexpresscafe/" target="_blank" class="text-amber-100 hover:text-orange-400 transition-colors">Instagram</a>
+                                <a href="https://www.facebook.com/HeirloomExpressCafe" target="_blank" class="text-emerald-100 hover:text-pink-400 transition-colors">Facebook</a>
+                                <a href="https://www.instagram.com/theheirloomexpresscafe/" target="_blank" class="text-emerald-100 hover:text-pink-400 transition-colors">Instagram</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h5 class="text-orange-400 font-bold mb-3 uppercase text-xs tracking-widest">Support & Inquiries</h5>
-                    <a href="mailto:support@theheirloomstore.com" class="text-amber-100 leading-relaxed hover:text-orange-400 transition-colors block">support@theheirloomstore.com</a>
+                    <h5 class="text-pink-400 font-bold mb-3 uppercase text-xs tracking-widest">Support & Inquiries</h5>
+                    <a href="mailto:support@theheirloomstore.com" class="text-emerald-100 leading-relaxed hover:text-pink-400 transition-colors block">support@theheirloomstore.com</a>
                 </div>
             </div>
 
-            <p class="text-amber-100/20 text-xs italic tracking-widest uppercase">&copy; 2026 The Heirloom Store LLC. Honoring history, crafting hope.</p>
+            <p class="text-emerald-100/20 text-xs italic tracking-widest uppercase">&copy; 2026 The Heirloom Store LLC. Honoring history, crafting hope.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const container = document.body;
-            const symbols = ['🍁', '🍂', '☕', '🎃', '🌰', '🍎'];
+            const symbols = ['🍎', '☕', '✏️', '📚', '🎒'];
             function createFallingElement() {
                 const el = document.createElement('div');
                 el.classList.add('falling-element');
                 el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
                 el.style.left = Math.random() * 98 + 'vw';
-                el.style.opacity = Math.random() * 0.5 + 0.2; 
-                el.style.fontSize = (Math.random() * 20 + 16) + 'px'; 
+                el.style.opacity = Math.random() * 0.4; 
+                el.style.fontSize = (Math.random() * 20 + 15) + 'px'; 
                 const duration = Math.random() * 10 + 15; 
                 el.style.animationDuration = duration + 's';
                 container.appendChild(el);
                 setTimeout(() => el.remove(), duration * 1000);
             }
-            setInterval(createFallingElement, 2200); 
+            setInterval(createFallingElement, 2500); 
 
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
