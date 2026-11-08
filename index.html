@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Heirloom Store - Fall Festival & Season</title>
+    <title>The Heirloom Store - Christmas with Santa & Winter Season</title>
     
     <link rel="icon" href="images/logo.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,14 +19,17 @@
             --btn-shadow: #8B2C0D; 
             --header-brown: #4A2E1B; 
             --fall-amber: #E08214;
-            --fall-burgundy: #7C2D12;
+            --fall-burgundy: #9B1C1C;
             --fall-gold: #D4AF37;
+            --winter-pine: #1F4D3A;
+            --winter-red: #B91C1C;
+            --winter-ice: #EAF3FB;
         }
 
         body {
             color: var(--text-charcoal);
             font-family: 'Inter', sans-serif;
-            background-color: #fcf8f2; 
+            background-color: #f4f8fc;
         }
 
         .fixed-bg {
@@ -35,7 +38,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/mansion-background.png');
+            background-image: url('images/winter-mansion-background.webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -48,7 +51,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(245, 239, 230, 0.45); 
+            background: rgba(240, 246, 252, 0.40);
             z-index: -1;
         }
 
@@ -58,21 +61,21 @@
         .glass-section {
             background: rgba(255, 253, 250, 0.78); 
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(224, 130, 20, 0.25);
-            box-shadow: 0 8px 32px 0 rgba(124, 45, 18, 0.08);
+            border: 1px solid rgba(185, 28, 28, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 77, 58, 0.10);
             border-radius: 2.5rem;
             margin: 4rem auto;
             padding: 4rem 2rem;
         }
 
         .btn-3d {
-            background-color: var(--accent-rust);
+            background-color: var(--winter-red);
             color: #ffffff;
             font-weight: 700;
             padding: 0.5rem 1rem; 
             border-radius: 9999px; 
             transition: all 0.2s ease;
-            box-shadow: 0px 3px 0px var(--btn-shadow); 
+            box-shadow: 0px 3px 0px #7F1D1D;
             text-transform: uppercase;
             font-size: 0.7rem; 
             display: inline-block;
@@ -103,8 +106,26 @@
         }
 
         .btn-3d-burgundy {
-            background-color: var(--fall-burgundy);
-            box-shadow: 0px 3px 0px #451A03;
+            background-color: var(--winter-pine);
+            box-shadow: 0px 3px 0px #0F2A1F;
+        }
+        .btn-3d:hover { transform: translateY(1px); filter: brightness(1.08); }
+
+        .falling-element.snow { color: #ffffff; text-shadow: 0 0 4px rgba(120,150,190,0.7); }
+
+        .santa-card {
+            background: linear-gradient(135deg, #9B1C1C 0%, #B91C1C 55%, #7F1D1D 100%);
+            color: #fff;
+            border-radius: 1.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .santa-card::before {
+            content: "";
+            position: absolute; inset: auto 0 0 0; height: 18px;
+            background: radial-gradient(circle at 10px 0, #fff 9px, transparent 10px) repeat-x;
+            background-size: 20px 18px;
+            opacity: 0.95;
         }
 
         /* Menu modal */
@@ -169,6 +190,7 @@
                 <h1 class="font-holiday text-4xl md:text-5xl lg:text-6xl font-bold" style="color: var(--header-brown);">The Heirloom Store</h1>
                 <nav class="hidden md:flex gap-3 mt-2">
                     <a href="#home" class="btn-3d">Home</a>
+                    <a href="#santa" class="btn-3d">🎅 Santa Event</a>
                     <a href="#cafe" class="btn-3d">The Express Cafe</a>
                     <a href="#history" class="btn-3d">History</a>
                     <a href="#malina" class="btn-3d">Founder</a>
@@ -191,17 +213,46 @@
     <main class="max-w-[1400px] mx-auto px-4 relative z-10">
         
         <section id="home" class="min-h-[60vh] flex flex-col items-center justify-center text-center pt-10">
-            <div class="bg-white/60 backdrop-blur-md p-10 rounded-[3rem] border border-amber-200 shadow-xl max-w-4xl mx-auto">
-                <div class="inline-block text-white px-8 py-2 rounded-full font-bold mb-6 tracking-widest uppercase text-sm shadow-sm" style="background-color: var(--accent-rust);">
-                    🍁 Fall Festival &bull; September 26th 🎃
+            <div class="bg-white/70 backdrop-blur-md p-10 rounded-[3rem] border border-red-200 shadow-xl max-w-4xl mx-auto">
+                <div class="inline-block text-white px-8 py-2 rounded-full font-bold mb-6 tracking-widest uppercase text-sm shadow-sm" style="background-color: var(--winter-red);">
+                    🎅 Christmas with Santa &bull; December 18th &amp; 19th 🎄
                 </div>
-                <h2 class="font-holiday text-6xl md:text-8xl mb-4" style="color: var(--fall-burgundy);">Autumn Festival Season</h2>
+                <h2 class="font-holiday text-6xl md:text-8xl mb-4" style="color: var(--winter-pine);">Christmas at the Mansion</h2>
                 <p class="text-gray-800 text-lg md:text-2xl font-light tracking-wide italic mb-6">
-                    Join us on <strong>September 26th</strong> for our grand Fall Festival! Crisp air, golden leaves, spiced artisan coffees, and timeless treasures await you at the Mandeville Mansion.
+                    Santa is coming to the Mandeville Mansion on <strong>December 18th &amp; 19th</strong>! Warm up with a cozy drink from the Express Cafe, find a one-of-a-kind gift, and make a holiday memory with the whole family.
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <button type="button" onclick="document.getElementById('menu-modal').classList.add('active'); document.body.style.overflow='hidden';" class="btn-3d btn-3d-burgundy px-8 py-3">☕ View Fall Cafe Menu</button>
-                    <a href="#cafe" class="btn-3d px-8 py-3 bg-amber-600 hover:bg-amber-700">🍂 Explore Autumn Sips</a>
+                    <a href="#santa" class="btn-3d px-8 py-3">🎅 Santa Event Details</a>
+                    <button type="button" onclick="document.getElementById('menu-modal').classList.add('active'); document.body.style.overflow='hidden';" class="btn-3d btn-3d-burgundy px-8 py-3">☕ View Winter Cafe Menu</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="santa" class="glass-section max-w-5xl">
+            <div class="santa-card p-8 md:p-12 pb-14 shadow-2xl">
+                <div class="grid md:grid-cols-[auto,1fr] gap-8 items-center relative z-10">
+                    <div class="flex md:flex-col gap-4 justify-center">
+                        <div class="bg-white text-center rounded-2xl px-6 py-4 shadow-lg" style="color: var(--winter-red);">
+                            <div class="text-xs font-bold uppercase tracking-widest" style="color: var(--winter-pine);">Dec</div>
+                            <div class="text-5xl font-bold" style="font-family: 'Playfair Display', serif;">18</div>
+                        </div>
+                        <div class="bg-white text-center rounded-2xl px-6 py-4 shadow-lg" style="color: var(--winter-red);">
+                            <div class="text-xs font-bold uppercase tracking-widest" style="color: var(--winter-pine);">Dec</div>
+                            <div class="text-5xl font-bold" style="font-family: 'Playfair Display', serif;">19</div>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="uppercase tracking-widest text-sm font-bold text-red-100">Upcoming Event</span>
+                        <h2 class="font-holiday text-5xl md:text-7xl mt-1 mb-4">Christmas with Santa</h2>
+                        <p class="text-lg md:text-xl leading-relaxed mb-4 text-red-50">
+                            Bring the kids to visit Santa at The Heirloom Store! Every child gets a <strong class="text-white underline decoration-2 underline-offset-4">FREE picture with Santa</strong>.
+                        </p>
+                        <p class="text-base md:text-lg leading-relaxed mb-8 text-red-50">
+                            📍 401 Maple Street, Carrollton, GA<br>
+                            Join our Facebook page for event times, updates and announcements.
+                        </p>
+                        <a href="https://www.facebook.com/theheirloomstore92" target="_blank" class="btn-3d btn-3d-gold px-8 py-3 text-sm">👍 Join Us on Facebook for Updates</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -218,64 +269,70 @@
             </div>
         </section>
 
-        <section id="cafe" class="glass-section border-l-8 border-amber-500">
+        <section id="cafe" class="glass-section border-l-8" style="border-left-color: var(--winter-pine);">
             <div class="text-center mb-14">
-                <h2 class="text-4xl font-bold text-amber-900 mb-3 italic">The Heirloom Express Cafe</h2>
-                <h3 class="text-2xl font-holiday mb-4" style="color: var(--accent-rust);">Sweet September Menu</h3>
+                <h2 class="text-4xl font-bold mb-3 italic" style="color: var(--winter-pine);">The Heirloom Express Cafe</h2>
+                <h3 class="text-3xl font-holiday mb-4" style="color: var(--winter-red);">Nostalgic November Menu</h3>
                 <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                    Step onto our historic railcar and celebrate the harvest season with our featured "Sweet September" refreshers and artisan espresso favorites.
+                    Step onto our historic railcar and warm up with our "Nostalgic November" refreshers and cozy specialty lattes &mdash; the perfect companion for a chilly day of holiday shopping.
                 </p>
             </div>
 
             <div class="mb-14">
-                <h4 class="text-xl font-bold text-amber-950 mb-6 uppercase tracking-wide text-center">Sweet September Refreshers</h4>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100 flex flex-col">
-                        <h5 class="text-xl font-bold text-amber-900 mb-2">🌕 Full Moon</h5>
+                <h4 class="text-xl font-bold mb-6 uppercase tracking-wide text-center" style="color: var(--winter-pine);">Nostalgic November Refreshers</h4>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-red-100 flex flex-col">
+                        <h5 class="text-xl font-bold text-red-800 mb-2">🧸 Warm and Fuzzy</h5>
                         <p class="text-gray-700 leading-relaxed flex-1">
-                            Citrus ★ blue blast ★ green apple ★ lemonade
+                            Berry ★ strawberry ★ peach ★ coconut
                         </p>
                     </div>
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100 flex flex-col">
-                        <h5 class="text-xl font-bold text-amber-900 mb-2">🌌 Twilight</h5>
+                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-red-100 flex flex-col">
+                        <h5 class="text-xl font-bold text-red-800 mb-2">🌧️ November Rain</h5>
                         <p class="text-gray-700 leading-relaxed flex-1">
-                            Citrus ★ peach ★ mango ★ blue blast
+                            Citrus ★ blue blast ★ cucumber ★ limeade
                         </p>
                     </div>
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100 flex flex-col">
-                        <h5 class="text-xl font-bold text-amber-900 mb-2">🎃 Pumpkin Patch</h5>
+                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-red-100 flex flex-col">
+                        <h5 class="text-xl font-bold text-red-800 mb-2">🍬 Guilty Pleasure</h5>
                         <p class="text-gray-700 leading-relaxed flex-1">
-                            Orange ★ fruit punch ★ cranberry ★ coconut
+                            Berry ★ rainbow candy ★ blue raspberry
                         </p>
                     </div>
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100 flex flex-col">
-                        <h5 class="text-xl font-bold text-amber-900 mb-2">🤡 It (Tim Curry)</h5>
+                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-red-100 flex flex-col">
+                        <h5 class="text-xl font-bold text-red-800 mb-2">🦃 All the Fixins</h5>
                         <p class="text-gray-700 leading-relaxed flex-1">
-                            Orange ★ cherry ★ grapefruit ★ pink starburst
-                        </p>
-                    </div>
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100 flex flex-col md:col-span-2 lg:col-span-2">
-                        <h5 class="text-xl font-bold text-amber-900 mb-2">🍁 Fall Fling</h5>
-                        <p class="text-gray-700 leading-relaxed flex-1">
-                            Tropical ★ peach ★ mango ★ strawberry ★ vanilla
+                            Orange ★ cranberry ★ vanilla ★ caramel drizzle ★ cinnamon sugar cold foam
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="mb-14">
-                <h4 class="text-xl font-bold text-amber-950 mb-6 uppercase tracking-wide text-center">Harvest Espresso Specialties</h4>
+                <h4 class="text-xl font-bold mb-6 uppercase tracking-wide text-center" style="color: var(--winter-pine);">Cozy Specialty Lattes</h4>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100">
-                        <h5 class="text-xl font-bold text-amber-900 mb-2">🚂 Orchard Express</h5>
+                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-red-100">
+                        <h5 class="text-xl font-bold text-red-800 mb-2">🍪 Cookie Butter Chai</h5>
                         <p class="text-gray-700 leading-relaxed">
-                            Espresso ★ apple crisp ★ caramel drizzle ★ cinnamon cold foam
+                            Chai ★ homemade cookie butter syrup
                         </p>
                     </div>
-                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-amber-100">
-                        <h5 class="text-xl font-bold text-amber-900 mb-2">Southern Pecan Praline</h5>
+                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-red-100">
+                        <h5 class="text-xl font-bold text-red-800 mb-2">🔥 Bonfire Season Latte</h5>
                         <p class="text-gray-700 leading-relaxed">
-                            Espresso ★ maple butter pecan ★ chopped pecans ★ brown sugar cold foam
+                            Mocha latte ★ marshmallow swirl ★ graham cracker topping
+                        </p>
+                    </div>
+                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-red-100">
+                        <h5 class="text-xl font-bold text-red-800 mb-2">🍊 Simmer Pot Macchiato</h5>
+                        <p class="text-gray-700 leading-relaxed">
+                            Espresso ★ spiced cranberry ★ orange marmalade ★ cinnamon cold foam
+                        </p>
+                    </div>
+                    <div class="bg-white/85 rounded-3xl p-8 shadow-md border border-red-100">
+                        <h5 class="text-xl font-bold text-red-800 mb-2">🫐 Blueberry Cobbler Matcha</h5>
+                        <p class="text-gray-700 leading-relaxed">
+                            Matcha ★ blueberry ★ brown sugar cold foam ★ graham cracker topping
                         </p>
                     </div>
                 </div>
@@ -293,20 +350,20 @@
             </div>
         </section>
 
-        <section id="spotlight" class="glass-section bg-amber-50/40">
+        <section id="spotlight" class="glass-section">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <a href="https://shop.theheirloomstore.com/products/backless-a-line-floral-maxi?variant=42751653478490" target="_blank" class="block w-full">
+                <a href="https://shop.theheirloomstore.com/collections/all-apparel-and-accessories" target="_blank" class="block w-full">
                     <div class="img-frame rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto hover:opacity-90 transition-opacity">
-                        <img src="images/online-store.webp" alt="Fall Apparel & Decor" onerror="this.src='https://placehold.co/600x750?text=Fall+Collection'">
+                        <img src="images/winter-sweater.webp" alt="Cozy patchwork knit hooded sweater from The Heirloom Store winter collection" class="w-full h-full object-cover object-top">
                     </div>
                 </a>
                 <div>
-                    <h2 class="text-3xl font-bold text-amber-950 mb-4">From Our Online Shop</h2>
-                    <h3 class="text-xl text-orange-600 mb-6 font-semibold">The Heirloom Autumn Collection</h3>
+                    <h2 class="text-3xl font-bold mb-4" style="color: var(--winter-pine);">From Our Online Shop</h2>
+                    <h3 class="text-xl mb-6 font-semibold" style="color: var(--winter-red);">The Heirloom Winter Collection</h3>
                     <p class="text-gray-700 mb-8 leading-relaxed">
-                        Embrace the cozy spirit of the season with our curated fall apparel, warm accessories, and rustic home decor. Whether you're getting ready for our September 26th Fall Festival or updating your wardrobe for sweater weather, our collection brings timeless warmth to your everyday life.
+                        Bundle up in style with cozy knits, warm accessories, and charming home decor. Whether you're dressing for a picture with Santa on December 18th &amp; 19th or hunting for the perfect Christmas gift, our winter collection brings timeless warmth to the season.
                     </p>
-                    <a href="https://shop.theheirloomstore.com/collections/all-apparel-and-accessories" target="_blank" class="btn-3d btn-3d-gold px-10 py-4">Shop Fall Collection</a>
+                    <a href="https://shop.theheirloomstore.com/collections/all-apparel-and-accessories" target="_blank" class="btn-3d btn-3d-gold px-10 py-4">Shop Winter Collection</a>
                 </div>
             </div>
         </section>
@@ -506,20 +563,22 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const container = document.body;
-            const symbols = ['🍁', '🍂', '☕', '🎃', '🌰', '🍎'];
+            const symbols = ['❄', '❅', '❆', '❄', '❅', '❆', '🎄', '⭐'];
             function createFallingElement() {
                 const el = document.createElement('div');
                 el.classList.add('falling-element');
-                el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+                const sym = symbols[Math.floor(Math.random() * symbols.length)];
+                if ('❄❅❆'.includes(sym)) el.classList.add('snow');
+                el.innerText = sym;
                 el.style.left = Math.random() * 98 + 'vw';
-                el.style.opacity = Math.random() * 0.5 + 0.2; 
-                el.style.fontSize = (Math.random() * 20 + 16) + 'px'; 
-                const duration = Math.random() * 10 + 15; 
+                el.style.opacity = Math.random() * 0.5 + 0.35;
+                el.style.fontSize = (Math.random() * 18 + 14) + 'px';
+                const duration = Math.random() * 10 + 12;
                 el.style.animationDuration = duration + 's';
                 container.appendChild(el);
                 setTimeout(() => el.remove(), duration * 1000);
             }
-            setInterval(createFallingElement, 2200); 
+            setInterval(createFallingElement, 900);
 
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
